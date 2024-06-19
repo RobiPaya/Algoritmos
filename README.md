@@ -6,3 +6,4 @@
 😄 Pronouns: eso/tilin
 ⚡ Fun fact: i like to make fun of diego and roberto
 NO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+i'm nothing like y'all 😂😂😭😨😬🤯😕🙁🙁😧😩🤪🥵🥶🤬😡😰😱
