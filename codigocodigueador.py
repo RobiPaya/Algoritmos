@@ -1,4 +1,5 @@
 
+
 print('Roberto doesn´t know how to speak english ')
 
 print('''👋 Hi, I’m tilin
@@ -12,6 +13,11 @@ print('''👋 Hi, I’m tilin
 lista=["VERDADERO","FALSO"]
 print('Roberto doesn´t know how to speak english ')
 a=input("Verdadero/Falso").upper()
+
+lista=["VERDADERO","FALSO"]
+print('Roberto doesn´t know how to speak english ')
+a=input("Verdadero/Falso : ").upper()
+
 for x in lista:
     if a in x:
         a=x
@@ -19,4 +25,6 @@ for x in lista:
 if a=="VERDADERO":
     print("CORRECTO")
 else:
+
+    print("INCORRECTO")
     print("INCORRECTO")
