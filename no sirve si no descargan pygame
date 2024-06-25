@@ -1,3 +1,5 @@
+#para descargarlo hay q buscar pygame y luego a download, luego abres cmp y le pones pip install pygame :O
+
 import pygame, sys
 import random
 pygame.init()
