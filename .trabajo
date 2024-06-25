@@ -1,0 +1,11 @@
+from os import system 
+system=('cls')
+promedio=[]
+resprobados=[]
+calificaciones=[10,8,1,2,10]
+
+int(input("sacar promedios"))
+for x in promedio:
+
+R=resprobados
+
