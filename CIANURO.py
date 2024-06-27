@@ -1,15 +1,17 @@
-from os import system
-system ('cls')
+
 print('¡¡¡tienes q pesar mas de 50, menos de 120 e ingresar un numero mayor de 0 en Cianuro.!!!\n')
-kg=int(input('Cuánto pesas? :'))
-cianuro=int(input('cuanto  cianuro ? :'))
+kg=float(input('Cuánto pesas? :'))
+cianuro=float(input('cuanto  cianuro ? :'))
 if kg>50 or kg<120:
     input('continuar...')
     if cianuro>0:
-        if cianuro>=kg*3:
+        if cianuro>kg*3:
             hola=cianuro-kg*3
-            print(f'quitale {hola} y es seguro esoo')
+            print(f'quitale {hola} y es seguro')
             print('mucho cianuro, te mueres 😭')
+        if cianuro==kg*3:
+            print('comete la mitad nose')
+ 
         else:
             print('cometela')
 else:
