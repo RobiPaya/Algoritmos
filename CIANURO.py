@@ -1,7 +1,8 @@
+
 print('¡¡¡tienes q pesar mas de 50, menos de 120 e ingresar un numero mayor de 0 en Cianuro.!!!\n')
 kg=float(input('Cuánto pesas? :'))
 cianuro=float(input('cuanto  cianuro ? :'))
-if kg>50 or kg<120 and cianuro<0:
+if kg>50 and kg<120 and cianuro>0:
         if cianuro>kg*3:
             hola=cianuro-kg*3
             print(f'quitale {hola} y es seguro')
