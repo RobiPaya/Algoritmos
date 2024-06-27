@@ -1,5 +1,6 @@
 peso=int(input("Peso : "))
-cianuro=int(input("MG : "))
+cianuro=float(input("MG : "))
+
 if peso<50 or peso>120 or cianuro<0:
     print("eror")
 else:
