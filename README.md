@@ -15,17 +15,3 @@
 ⚡ Fun fact: i like to make fun of diego and roberto
 
 i'm nothing like y'all 😎😂😂😭😨😬🤯😕🙁🙁😧😩🤪🥵🥶🤬😡😰😱
-
-
-🐠                  🐠🐠🐠
-
-🌊  💧       🌊🌊🌊
-
-
-                                                                                                                                                                                  hi dr.
-                                                                                                                                                                    whats does this mean?
-الباراسيتامو
-
-                                                                                                                          Hi.
-                                                                                                                          
-                                                                                                                          paracetamol.
