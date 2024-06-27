@@ -1,4 +1,12 @@
-import turtle
-print("Archivo de luis")
-luis=turtle
-luis.forward(80)
+from turtle import*
+gus=Turtle()
+gus.shape('Turtle')
+roberto=Turtle()
+roberto.shape('Turtle')
+yahir=Turtle()
+yahir.shape('Turtle')
+
+screen=Screen()
+screen.exitonclick()
+
+print('calla gustavo')
