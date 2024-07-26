@@ -7,7 +7,7 @@ total=0
 for x in entrada:
     if x.isnumeric():
         a=int(x)
-    else:
+    else: 
         if x=="goku":
             total+=a*50
         elif x=="krilin":
@@ -18,11 +18,4 @@ for x in entrada:
             total+=a*20
         else:
             total+=a*200
-
 print(f"Total de ingresos: {total}\nMulta del SAT: {total*3}\nDeuda: {total*3-total}")
-
-
-
-
-
-
