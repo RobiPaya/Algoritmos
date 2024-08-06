@@ -1,7 +1,7 @@
 numerodelugares=int(input("Cuántos lugares van a darle like? : "))
 likes=[]
 lugar=0
-a=1
+a=0
 for totaldenumerodelugares in range(numerodelugares):
     lugar+=1
     likes.append(int(input(f"Cuántos likes para el lugar {lugar}? : ")))
@@ -10,9 +10,10 @@ for x in likes:
     b=x
     if x==maximo:
         print(maximo)
-        break
+        b=-1
+        for nose in range(b-a):
+            print("X")
+            break
     else:
         a+=1
         print("X")
-for nose in range(b-a):
-    print("X")
