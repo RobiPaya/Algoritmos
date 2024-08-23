@@ -1,0 +1,16 @@
+entrada='''40
+25000
+8
+500
+'''.split()
+personas=int(entrada[0])
+costototalsincuota=int(entrada[1])
+niños=int(entrada[2])
+costoparaniños=int(entrada[3])
+adultos=personas-niños
+cuotaniños=niños*costoparaniños
+costototalsincuota-=cuotaniños
+cuotatotaladu=costototalsincuota/adultos+((costototalsincuota/adultos)*.12)
+cuotatotalniños=costoparaniños+(costoparaniños*.12)
+print(cuotatotaladu)
+print(cuotatotalniños)
