@@ -1,8 +1,8 @@
 import random
 lita=["rock","paper","scissors"]
 ia=random.choice(lita)
-print(ia)
-rock = """
+
+rocky = """
     _______
 ---'   ____)
       (_____)
@@ -11,7 +11,7 @@ rock = """
 ---.__(___)
 """
 
-paper = """
+papery = """
      _______
 ---'    ____)____
            ______)
@@ -20,7 +20,7 @@ paper = """
 ---.__________)
 """
 
-scissors = """
+scissorsy = """
 
     _______
 ---'   ____)____
@@ -37,16 +37,23 @@ for x in lita:
         opcion=x
 print(opcion)
 if ia=="rock" and opcion=="paper":
+    print(f"Diego : {rocky}\n Tu: {papery}")
     print("ganaste")
 elif ia=="rock" and opcion=="scissor":
+    print(f"Diego : {rocky}\n Tu: {scissorsy}")
     print("Peridns")
 elif ia=="scissors" and opcion=="paper":
+    print(f"Diego : {scissorsy}\n Tu: {papery}")
     print("perdiste")
 elif ia=="scissors" and opcion=="rock":
+    print(f"Diego : {scissorsy}\n Tu: {rocky}")
     print("Ganaste")
 elif ia=="paper" and opcion=="rock":
+    print(f"Diego : {papery}\n Tu: {rocky}")
     print("Perdiste")
 elif ia=="paper" and opcion=="scissors":
+    print(f"Diego : {papery}\n Tu: {scissorsy}")
     print("Ganaste")
 else:
     print("empate")
+
