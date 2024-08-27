@@ -30,23 +30,11 @@ scissors = """
 ---.__(___)
 """
 
-opcion=input("PAPE, rock, sisor: ").lower()
+opcion=input("PAPE, rok, sisor: ").upper()
 
 for x in lita:
     if opcion in x:
         opcion=x
-print(opcion)
-if ia=="rock" and opcion=="paper":
+
+if ia>opcion:
     print("ganaste")
-elif ia=="rock" and opcion=="scissor":
-    print("Peridns")
-elif ia=="scissors" and opcion=="paper":
-    print("perdiste")
-elif ia=="scissors" and opcion=="rock":
-    print("Ganaste")
-elif ia=="paper" and opcion=="rock":
-    print("Perdiste")
-elif ia=="paper" and opcion=="scissors":
-    print("Ganaste")
-else:
-    print("empate")
