@@ -55,5 +55,4 @@ elif ia=="paper" and opcion=="scissors":
     print(f"Diego : {papery}\n Tu: {scissorsy}")
     print("Ganaste")
 else:
-    print("empate")
-
+    print("empate UwU")
