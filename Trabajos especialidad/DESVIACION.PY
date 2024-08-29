@@ -2,7 +2,9 @@ import math
 total=0
 cont=0
 desviacion=0
-NUMEROS=input("Numeros: ").replace(","," ").split()
+NUMEROS=int(input("Numeros: ").replace(","," ").split())
+media1=sum(NUMEROS)/len(NUMEROS)
+print(media1)
 for x in NUMEROS:
     y=int(x)
     total+=y
