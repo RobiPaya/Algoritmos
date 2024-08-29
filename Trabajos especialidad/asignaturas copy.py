@@ -10,3 +10,5 @@ for x in lista:
     if x[1]<6:
         recursos.append(x[0])
 print(f"Materias que necesitas recursar{recursos}")
+
+PermissionError
