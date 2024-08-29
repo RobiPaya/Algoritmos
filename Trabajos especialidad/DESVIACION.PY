@@ -3,7 +3,6 @@ total=0
 cont=0
 desviacion=0
 NUMEROS=input("Numeros: ").replace(","," ").split()
-print(NUMEROS)
 for x in NUMEROS:
     y=int(x)
     total+=y
