@@ -9,7 +9,7 @@ for x in range(10):
         if x==posicion:
             posicion=random.randint(1,len(estados1))
     respuesta=input(f"Dame la capital de {estados1[posicion]}")
-    if respuesta==Estadosconcaptal[posicion]:
+    if respuesta==estadosconcaptal[posicion]:
         respuestas.append(respuesta+" Correcta")
     else:
         respuestas.append(respuesta+" incorrecta")
