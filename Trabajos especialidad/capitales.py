@@ -1,3 +1,3 @@
+import random
 from estados import *
-estados1
 
