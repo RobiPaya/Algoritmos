@@ -13,9 +13,14 @@ for x in range(10):
         respuestas.append(respuesta+" Correcta")
     else:
         respuestas.append(respuesta+" incorrecta")
+<<<<<<< HEAD
   
 print(respuestas)
 
 
 
 
+=======
+
+print(respuestas)
+>>>>>>> 951565cce3689ff6a4aab3c6b7a91d65a9e7a47a
