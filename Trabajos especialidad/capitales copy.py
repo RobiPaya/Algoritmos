@@ -14,6 +14,7 @@ for x in range(10+sasa):
             hola2=x
     if hola2==estados1[posicion]:
         corrrectas+=1
+        print("Correcta")
     else:
         incorrrectas+=1
 print(f"Correctas : {corrrectas}")

@@ -15,7 +15,3 @@ for x in range(10):
         respuestas.append(respuesta+" incorrecta")
 
 print(respuestas)
-
-
-
-
