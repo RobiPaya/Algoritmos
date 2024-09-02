@@ -13,7 +13,7 @@ for x in range(10):
         respuestas.append(respuesta+" Correcta")
     else:
         respuestas.append(respuesta+" incorrecta")
-
+  
 print(respuestas)
 
 
