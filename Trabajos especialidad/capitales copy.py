@@ -3,14 +3,13 @@ from estados import *
 sasa=0
 corrrectas=0
 incorrrectas=0
-hola2=0
 listadeya=[]
-for x in range(10+sasa):
-    posicion=random.randint(1,10)
+for x in range(sasa+10):
+    posicion=random.randint(1,32)
     if posicion in listadeya:
-        sasa+=1
-        print("ohl")
-        continue
+        sasa=sasa+1
+        print("Se repitio")
+        pass
     listadeya.append(posicion)
     hola=input(f"Capital de {estados1[posicion]} : ").title()
     for x in estados1:
