@@ -10,6 +10,7 @@ for x in range(tamañopalabra):
 adivina1=adivina
 while True:
     system("cls")
+    print(pala)
     print(caca[oportunidades])
     print(f"\n{adivina}")
     adivina=list(adivina)
@@ -24,11 +25,14 @@ while True:
     adivina=adivina1
     if oportunidades==6 or adivina==palabra:
         break
+imagen=random.randint(0,4)
 if adivina==palabra:
     system("cls")
+    print(pala)
+    print(gane[imagen])
     print(f"GANASTE\n{palabra}")
-    print(caca[oportunidades])
 else:
     system("cls")
-    print(caca[6])
+    print(pala)
+    print(perdi[imagen])
     print(f"PERDISTE\nLa palabra era {palabra}")
