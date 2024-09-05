@@ -14,7 +14,7 @@ while True:
     for y in range(len(palabra)):
         if palabra[y]==letra:
             adivina[y]=letra
-    if letra not in palabra:
+    if letra not in palabra or not letra:
         print("esa letra es incorrecta")
         oportunidades+=1
     adivina1=""
