@@ -18,5 +18,3 @@ if adivina==palabra:
     print("GANASTE")
 else:
     print("PERDISTE")
-
-
