@@ -3,15 +3,12 @@ from estados import *
 sasa=0
 corrrectas=0
 incorrrectas=0
-listadeya=[]
-for x in range(sasa+10):
-    posicion=random.randint(1,32)
-    if posicion in listadeya:
-        sasa=sasa+1
-        print("Se repitio")
-        pass
-    listadeya.append(posicion)
+listadecorrectas=[]
+while True:
+    posicion=random.randint(1,len(estados1))
+    print(posicion)
     hola=input(f"Capital de {estados1[posicion]} : ").title()
+    estados1.remove(estados1[posicion])
     for x in estados1:
         if hola in x:
             hola=x
@@ -21,5 +18,14 @@ for x in range(sasa+10):
     else:
         incorrrectas+=1
         print("Incorrecta")
+        listadecorrectas.append(estados1[posicion])
+    if hola=="Salir":
+        break
+    elif len(estados1)==0:
+        print("Ya se acabaron")
+        break
 print(f"Correctas : {corrrectas}")
 print(f"Incorrectas : {incorrrectas}")
+print("Debes estudiar estas capitales : \n")
+for x in listadecorrectas:
+    print(x)
