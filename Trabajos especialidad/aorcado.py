@@ -17,17 +17,12 @@ while True:
     if letra not in palabra:
         print("esa letra es incorrecta")
         oportunidades+=1
-    else:
-        if oportunidades==0:
-            pass
-        else:
-            oportunidades-=1
     adivina1=""
     adivina1=adivina1.join(adivina)
     adivina=adivina1
     if oportunidades==6 or adivina==palabra:
         break
 if adivina==palabra:
-    print("GANASTE")
+    print(f"GANASTE\n{palabra}")
 else:
-    print("PERDISTE")
+    print(f"PERDISTE\nLa palabra era {palabra}")
