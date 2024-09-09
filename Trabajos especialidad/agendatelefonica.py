@@ -1,5 +1,4 @@
 from os import system
-
 lista=[]
 while True:
     system("cls")
