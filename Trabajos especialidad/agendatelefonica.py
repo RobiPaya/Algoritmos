@@ -32,4 +32,4 @@ while True:
                 print("No se encuentra esa persona")
     else:
         print("ESA OPCION NO EXISTE")
-    input("Enter para continuar...")         
+    input("Enter para continuar...")
