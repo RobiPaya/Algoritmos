@@ -1,33 +1,32 @@
 state,x,y
-Aguascalientes, -45, -48
-Aguascalientes
-Baja California
-Baja California Sur
-Campeche
-Chiapas
-Chihuahua
-Coahuila de Zaragoza
+., 0, 0
+Baja California, -330, 200
+Baja California Sur, -330, 60
+Campeche, 228, -121
+Chiapas, 189, -174
+Chihuahua, -134, 116
+Coahuila, -36, 90
 Colima,-52,-120
-Durango
+Durango, -100, 32
 Estado de México
 Guanajuato
-Guerrero
+Guerrero, 14, -152
 Hidalgo
-Jalisco,-47,-100
-Michoacán de Ocampo
+Jalisco, -94, -91
+Michoacán, -28, -118
 Morelos
-Nayarit,-60,-65
-Nuevo León
-Oaxaca
-Puebla
+Nayarit, -96, -46
+Nuevo León, 19, 45
+Oaxaca, 99, -163
+Puebla, 63, -125
 Querétaro
-Quintana Roo
-San Luis Potosí
-Sinaloa
-Sonora
-Tabasco
-Tamaulipas
+Quintana Roo, 270, -96
+San Luis Potosí, 8, -39
+Sinaloa, -176, 49
+Sonora, -215, 150
+Tabasco, 175, -136
+Tamaulipas, 43, 0
 Tlaxcala
-Veracruz de Ignacio de la Llave
-Yucatán
-Zacatecas
+Veracruz, 99, -101
+Yucatán, 260, -67
+Zacatecas, -55, -6
