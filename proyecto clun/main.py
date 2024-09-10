@@ -13,7 +13,7 @@ guessed_states = []
 
 while len(guessed_states) < 50:
     answer_state = screen.textinput(title=f"{len(guessed_states)}/50 Estados Correctos",
-                                    prompt="¿Otro estado?").title()
+                                    prompt="Dime un estado").title()
     if answer_state == "Exit":
         missing_states = []
         for state in all_states:
