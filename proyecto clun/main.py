@@ -3,7 +3,7 @@ import pandas
 
 screen = turtle.Screen()
 screen.title("U.S. States Game")
-image = "blank_states_img.gif"
+image = "mapa.gif"
 screen.addshape(image)
 turtle.shape(image)
 
