@@ -1,5 +1,6 @@
 state,x,y
 ., 0, 0
+Aguascalientes, -327, -102
 Baja California, -330, 200
 Baja California Sur, -330, 60
 Campeche, 228, -121
@@ -8,25 +9,26 @@ Chihuahua, -134, 116
 Coahuila, -36, 90
 Colima,-52,-120
 Durango, -100, 32
-Estado de México
-Guanajuato
+México, -327, -202
+Guanajuato, -327, -122
 Guerrero, 14, -152
-Hidalgo
+Hidalgo, -327, -162
 Jalisco, -94, -91
 Michoacán, -28, -118
-Morelos
+Morelos, -327, -242
 Nayarit, -96, -46
 Nuevo León, 19, 45
 Oaxaca, 99, -163
 Puebla, 63, -125
-Querétaro
+Querétaro, -327, -142
 Quintana Roo, 270, -96
 San Luis Potosí, 8, -39
 Sinaloa, -176, 49
 Sonora, -215, 150
 Tabasco, 175, -136
 Tamaulipas, 43, 0
-Tlaxcala
+Tlaxcala, -327, -182
 Veracruz, 99, -101
 Yucatán, 260, -67
 Zacatecas, -55, -6
+Distrito Federal, -327, -222
