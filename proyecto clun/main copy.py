@@ -5,6 +5,10 @@ screen = turtle.Screen()
 screen.title("U.S. States Game")
 image = "mapa.gif"
 screen.addshape(image)
+turtle.shape(image)
+data = pandas.read_csv("50_states.csv")
+all_states = data.state.to_list()
+guessed_states = []
 def estados():
     answer_state=entrada.get().title()
     if answer_state in all_states:
@@ -21,16 +25,10 @@ def estados():
             if state not in guessed_states:
                 missing_states.append(state)
         new_data = pandas.DataFrame(missing_states)
-        new_data.to_csv("states_to_learn.csv")
-        
+        new_data.to_csv("states_to_learn.csv") 
+        ventana.destroy
     entrada.delete(0,len(answer_state))
-
-
-turtle.shape(image)
-data = pandas.read_csv("50_states.csv")
-all_states = data.state.to_list()
-guessed_states = []
-
+    ventana.title(f"{len(guessed_states)}/50 Estados correctos")
 while len(guessed_states) < 50:
     ventana=tk.Tk()
     ventana.title(f"{len(guessed_states)}/50 Estados correctos")
