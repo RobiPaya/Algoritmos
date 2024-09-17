@@ -1,3 +1,5 @@
+import math 
+
 def areacuadrado(lado):
     return lado * lado
 
@@ -5,10 +7,11 @@ def areatriangulorectangulo(lado):
     return (lado*lado)/2
 
 def areaheaxa(lado):
-    return ((lado*6)*lado)/2
+    base=int(input("Base : "))
+    return (base*lado)
 
 def areacircul(lado):
     return 3.1416 * (lado/2)**2
 
 def areapentagono(lado):
-    return ((lado*5)*lado)/2
+    return (3.1416 * (lado/2)**2)/2
