@@ -9,8 +9,12 @@ while True:
         break
     elif opcion=="A":
         nombre=input("Nombre: ").title()
-        numero=input("Numero de telefono: ").replace(" ","-")
-        lista[nombre]=numero
+        if nombre in lista:
+            print("Yata")
+            print(f"Su numero : {numero}")
+        else:
+            numero=input("Numero de telefono: ").replace(" ","-")
+            lista[nombre]=numero
     elif opcion=="M":
         for x in lista:
             print(f"Nombre : {x} Número : {lista.get(x)}")
