@@ -3,16 +3,16 @@ lista=[]
 calificacion=0
 alumnos=int(input("Cuantos alumnos son: "))
 for x in range(alumnos):
+    lista.clear()
     nombre=input("Dame tu nombre: ").title()
     while calificacion>=0:
-        materia=input("Dame materia: ")
         calificacion=float(input("Dame tu calificaion: "))
-        lista.append([materia,calificacion])
-    diccionario[nombre]={lista}
-    lista.clear()
-
+        if calificacion>=0:
+            lista.append(calificacion)
+    calificacion=0
+    diccionario.update({nombre:lista})
 for x in diccionario:
     print(x)
     notas=diccionario.get(x)
     for x in notas:
-        print(x[0],x[1])
+        print(x)
