@@ -6,7 +6,7 @@ def suma():
     resultado.config(text=(f"Resultado {resu}"))
 ventana=tk.Tk()
 ventana.title("SUMA")
-ventana.minsize(width=500,height=400)
+ventana.minsize(width=500,height=400)   
 titulo=tk.Label(text=("SUMA"),font=("Arial",24,"bold")).pack()
 entrada1=tk.Entry()
 entrada2=tk.Entry()
