@@ -1,0 +1,1 @@
+pepe.com, pepe@gmail.com,<bound method Entry.get of <tkinter.Entry object .!entry3>>
