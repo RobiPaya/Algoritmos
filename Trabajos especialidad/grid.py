@@ -1,4 +1,10 @@
 import tkinter as tk
+lista=[]
+listaabecedario=[]
+listanumeros=[]
+listasimbolos=[]
+def password():
+
 
 window=tk.Tk()
 window.minsize(width=10, height=10)
