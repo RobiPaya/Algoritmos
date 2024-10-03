@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import random as r
-import pyperclip as py
+#
 lista=[]
 listaabecedario=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 listanumeros=["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -10,7 +10,7 @@ def archivo():
     web=entradawebsite.get()
     user=entradaemail.get()
     passw=entradapassword.get()
-    py.copy(passw)
+    #py.copy(passw)
     if not web or not user or not passw:
         messagebox.showinfo(title="NADA", message="FALTAN DATOS")
     else:
@@ -46,6 +46,8 @@ verimagen = tk.Label(image=imagen).grid(row=1, column=2)
 website=tk.Label(text="Website").grid(row=2,column=1)
 entradawebsite=tk.Entry(width=28)
 entradawebsite.grid(row=2, column=2, columnspan=2)
+generarbuscar=tk.Button(text="Buscar", width=6)
+generarbuscar.grid(row=2, column=3)
 email=tk.Label(text="email").grid(row=3,column=1)
 entradaemail=tk.Entry(width=28)
 entradaemail.grid(row=3, column=2, columnspan=2)
