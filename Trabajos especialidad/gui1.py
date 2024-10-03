@@ -1,0 +1,15 @@
+import tkinter as caca
+def cambiador():
+    cambiar.config(text=entrada.get())
+window=caca.Tk()
+window.minsize(width=500, height=500)
+window.title("UwU")
+texto=caca.Label(text=("Tutilo"))
+texto.pack()
+cambiar=caca.Label(text=("Hola"))
+cambiar.pack()
+entrada=caca.Entry()
+entrada.pack()
+botono=caca.Button(window,text=("Cambiar"),command=cambiador())
+botono.pack()
+window.mainloop()

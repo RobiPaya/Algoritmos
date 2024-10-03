@@ -1,0 +1,15 @@
+import tkinter as tk
+def picale():
+    etiqueta.config(text=entrada.get())
+window=tk.Tk()
+window.title("Interfaz insana")
+window.minsize(width=500,height=400)
+titulo=tk.Label(text=("waza"),font=("Arial",24,"bold"))
+titulo.pack()
+etiqueta=tk.Label(text="HOLA")
+etiqueta.pack()
+entrada=tk.Entry()
+entrada.pack()
+boton=tk.Button(window,text=("Diego"),command=picale)
+boton.pack()
+window.mainloop()
