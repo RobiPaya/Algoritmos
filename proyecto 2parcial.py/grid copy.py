@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import random as r
 import json as json
+import pyperclip as py
 #
 lista=[]
 listaabecedario=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -11,7 +12,7 @@ def archivo():
     web=entradawebsite.get()
     user=entradaemail.get()
     passw=entradapassword.get()
-    #py.copy(passw)
+    py.copy(passw)
     nuevosdatos=({web:{"email":user, "password":passw}})
     if not web or not user or not passw:
         messagebox.showinfo(title="NADA", message="FALTAN DATOS")
