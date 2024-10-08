@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import random as r
 import json as json
+import pyperclip as py
 #
 lista=[]
 listaabecedario=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -11,6 +12,8 @@ def archivo():
     web=entradawebsite.get()
     user=entradaemail.get()
     passw=entradapassword.get()
+    py.copy(passw)
+    nuevosdatos=({web:{"email":user, "password":passw}})
     #py.copy(passw)
     if not web or not user or not passw:
         messagebox.showinfo(title="NADA", message="FALTAN DATOS")
@@ -18,22 +21,28 @@ def archivo():
         ok = messagebox.askokcancel(title="Titulo", message="Quieres guardar esta información?")
         if ok :
             try:
-                with open("datos.json", "a") as archivo:
-                    archivo.write(f"{web} | {user} | {passw}\n")
-                    entradapassword.delete(0, len(entradapassword.get()))
-                    entradaemail.delete(0, len(entradaemail.get()))
-                    entradawebsite.delete(0, len(entradawebsite.get()))
-            except:
-                messagebox.showinfo(title="ERROR", message="NO SE PUDO ABRIR EL ARCHIVO")
+                with open("datos.json","r") as data_file:
+                    data=json.load(data_file)
+                    data.update(nuevosdatos)
+                with open("datos.json","w") as data_file:
+                    json.dump(data,data_file,indent=4)
+                messagebox.showinfo(title="ERROR", message="se creo")
+            except FileNotFoundError:
+                data.update(nuevosdatos)
+                with open("data.json","w"):
+                    json.dump(data, data_file, indent=4) 
+                messagebox.showinfo(title="ERROR", message="se actualizó")
 def buscar():
     web=entradawebsite.get()
     if not web:
         messagebox.showinfo(title="NADA", message="FALTAN DATOS")
     else:
-        with open("datos.json", "r") as data_file:
-            archivo = json.load(data_file) # La información del archivo se guarda en "datos"
-            print(type(archivo)) # datos es un diccionario que contiene la información del archivo
-            print(archivo) # Aqui se muestra en consola el contenido del archivo
+        with open("datos.json","r") as archivo:
+            entradapassword.delete(0,len(entradapassword.get()))
+            entradaemail.delete(0,len(entradaemail.get()))
+            nuevoarchivo=json.load(archivo)
+            entradaemail.insert(0,nuevoarchivo[web]["email"])
+            entradapassword.insert(0,nuevoarchivo[web]["password"])
 def passwords():
     rango=r.randint(8,12)
     entradapassword.delete(0,len(entradapassword.get()))
