@@ -76,8 +76,19 @@ num0=tk.Button(text="0", command=func0)
 num0.grid(column=2, row=4)
 suma=tk.Button(text="+", command=multiple)
 suma.grid(column=4, row=1)
-
-er
-
+resta=tk.Button(text="-", command=multiple)
+resta.grid(column=4, row=2)
+multiplicacion=tk.Button(text="*", command=multiple)
+multiplicacion.grid(column=4, row=3)
+division=tk.Button(text="/", command=multiple)
+division.grid(column=4, row=5)
+porcentaje=tk.Button(text="%", command=multiple)
+porcentaje.grid(column=3, row=5)
+borrar=tk.Button(text="<-", command=multiple)
+borrar.grid(column=2, row=5)
+clear=tk.Button(text="C", command=multiple)
+clear.grid(column=1, row=5)
+punto=tk.Button(text=".", command=multiple)
+punto.grid(column=3, row=4)
 
 window.mainloop()
