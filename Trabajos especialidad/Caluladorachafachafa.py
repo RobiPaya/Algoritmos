@@ -77,7 +77,7 @@ num0.grid(column=2, row=4)
 suma=tk.Button(text="+", command=multiple)
 suma.grid(column=4, row=1)
 
-
+er
 
 
 window.mainloop()
