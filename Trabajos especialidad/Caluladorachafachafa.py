@@ -48,9 +48,6 @@ def multiple():
     return[func10(),]
 lista=[]
 window=tk.Tk()
-imagen=tk.PhotoImage(file="ad.png")
-background=tk.Label(image=imagen)
-background.place(x=66, y=0)
 window.title("CalculaDora")
 texto=tk.Label(text="")
 texto.grid(column=0,row=0, columnspan=5)
