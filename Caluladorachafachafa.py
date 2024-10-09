@@ -86,6 +86,7 @@ window=tk.Tk()
 imagen=tk.PhotoImage(file="ad.png")
 window.title("CalculaDora")
 background=tk.Label(image=imagen)
+
 background.place(x=0, y=0)
 texto=tk.Entry()
 texto.grid(column=1,row=0, columnspan=4)
