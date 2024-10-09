@@ -2,38 +2,58 @@ import tkinter as tk
 lista=[]
 listaoperaciones=[]
 def func1():
-    sumador="1"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"1")
+    else:
+        texto.insert(0,"1")
 def func2():
-    sumador="2"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"2")
+    else:
+        texto.insert(0,"2")
 def func3():
-    sumador="3"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"3")
+    else:
+        texto.insert(0,"3")
 def func4():
-    sumador="4"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"4")
+    else:
+        texto.insert(0,"4")
 def func5():
-    sumador="5"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"5")
+    else:
+        texto.insert(0,"5")
 def func6():
-    sumador="6"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"6")
+    else:
+        texto.insert(0,"6")
 def func7():
-    sumador="7"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"7")
+    else:
+        texto.insert(0,"7")
 def func8():
-    sumador="8"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"8")
+    else:
+        texto.insert(0,"8")
 def func9():
-    sumador="9"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"9")
+    else:
+        texto.insert(0,"9")
 def func0():
-    sumador="0"
-    texto.insert(0,sumador)
+    if "." in texto.get():
+        texto.insert(len(texto.get()),"0")
+    else:
+        texto.insert(0,"0")
 def funcpunto():
     sumador="."
-    texto.insert(0,sumador)
+    texto.insert(len(texto.get()),sumador)
 def func10():
     sumador=float(texto.get())
     texto.delete(0,len(texto.get()))
@@ -60,7 +80,10 @@ def func14():
     lista.append(sumador)
     listaoperaciones.append("%")
 def funcborra():
-    texto.delete(0,1)
+    if "." in texto.get():
+        texto.delete(len(texto.get())-1,len(texto.get()))
+    else:
+        texto.delete(0,1)
 def funclear():
     texto.delete(0,len(texto.get()))
 def funcigual():
@@ -83,7 +106,7 @@ def funcigual():
     listaoperaciones.clear()
 
 window=tk.Tk()
-texto=tk.Entry()
+texto=tk.Entry(justify="right")
 texto.grid(column=0,row=0, columnspan=5)
 num1=tk.Button(text="1",command=func1, width=3, height=3)
 num1.grid(column=1,row=1)
@@ -123,6 +146,4 @@ punto=tk.Button(text=".", command=funcpunto, width=3, height=3)
 punto.grid(column=3, row=4)
 igual=tk.Button(text="=", command=funcigual, width=3, height=3)
 igual.grid(column=4, row=5)
-
-
 window.mainloop()
