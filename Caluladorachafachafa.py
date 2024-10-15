@@ -1,39 +1,6 @@
 import tkinter as tk
 lista=[]
 listaoperaciones=[]
-def func1():
-    sumador="1"
-    texto.insert(0,sumador)
-def func2():
-    sumador="2"
-    texto.insert(0,sumador)
-def func3():
-    sumador="3"
-    texto.insert(0,sumador)
-def func4():
-    sumador="4"
-    texto.insert(0,sumador)
-def func5():
-    sumador="5"
-    texto.insert(0,sumador)
-def func6():
-    sumador="6"
-    texto.insert(0,sumador)
-def func7():
-    sumador="7"
-    texto.insert(0,sumador)
-def func8():
-    sumador="8"
-    texto.insert(0,sumador)
-def func9():
-    sumador="9"
-    texto.insert(0,sumador)
-def func0():
-    sumador="0"
-    texto.insert(0,sumador)
-def funcpunto():
-    sumador="."
-    texto.insert(0,sumador)
 def func10():
     sumador=float(texto.get())
     texto.delete(0,len(texto.get()))
@@ -59,10 +26,6 @@ def func14():
     texto.delete(0,len(texto.get()))
     lista.append(sumador)
     listaoperaciones.append("%")
-def funcborra():
-    texto.delete(0,1)
-def funclear():
-    texto.delete(0,len(texto.get()))
 def funcigual():
     numer1=lista[0]
     numer2=float(texto.get())
@@ -83,27 +46,27 @@ def funcigual():
     listaoperaciones.clear()
 
 window=tk.Tk()
-texto=tk.Entry()
+texto=tk.Entry(justify="right")
 texto.grid(column=0,row=0, columnspan=5)
-num1=tk.Button(text="1",command=func1, width=3, height=3)
+num1=tk.Button(text="1",command=texto.insert(len(texto.get()),"1"), width=3, height=3)
 num1.grid(column=1,row=1)
-num2=tk.Button(text="2", command=func2, width=3, height=3)
+num2=tk.Button(text="2", command=texto.insert(len(texto.get()),"2"), width=3, height=3)
 num2.grid(column=2, row=1)
-num3=tk.Button(text="3", command=func3, width=3, height=3)
+num3=tk.Button(text="3", command=texto.insert(len(texto.get()),"3"), width=3, height=3)
 num3.grid(column=3, row=1)
-num4=tk.Button(text="4", command=func4, width=3, height=3)
+num4=tk.Button(text="4", command=texto.insert(len(texto.get()),"4"), width=3, height=3)
 num4.grid(column=1, row=2)
-num5=tk.Button(text="5", command=func5, width=3, height=3)
+num5=tk.Button(text="5", command=texto.insert(len(texto.get()),"5"), width=3, height=3)
 num5.grid(column=2, row=2)
-num6=tk.Button(text="6", command=func6, width=3, height=3)
+num6=tk.Button(text="6", command=texto.insert(len(texto.get()),"6"), width=3, height=3)
 num6.grid(column=3, row=2)
-num7=tk.Button(text="7", command=func7, width=3, height=3)
+num7=tk.Button(text="7", command=texto.insert(len(texto.get()),"7"), width=3, height=3)
 num7.grid(column=1, row=3)
-num8=tk.Button(text="8", command=func8, width=3, height=3)
+num8=tk.Button(text="8", command=texto.insert(len(texto.get()),"8"), width=3, height=3)
 num8.grid(column=2, row=3)
-num9=tk.Button(text="9", command=func9, width=3, height=3)
+num9=tk.Button(text="9", command=texto.insert(len(texto.get()),"9"), width=3, height=3)
 num9.grid(column=3, row=3)
-num0=tk.Button(text="0", command=func0, width=3, height=3)
+num0=tk.Button(text="0", command=texto.insert(len(texto.get()),"0"), width=3, height=3)
 num0.grid(column=2, row=4)
 suma=tk.Button(text="+", command=func10, width=3, height=3)
 suma.grid(column=4, row=1)
@@ -115,14 +78,12 @@ division=tk.Button(text="/", command=func13, width=3, height=3)
 division.grid(column=4, row=4)
 porcentaje=tk.Button(text="%", command=func14, width=3, height=3)
 porcentaje.grid(column=3, row=5)
-borrar=tk.Button(text="<-", command=funcborra, width=3, height=3)
+borrar=tk.Button(text="<-", command=texto.delete(len(texto.get())-1,len(texto.get())), width=3, height=3)
 borrar.grid(column=2, row=5)
-clear=tk.Button(text="C", command=funclear, width=3, height=3)
+clear=tk.Button(text="C", command=texto.delete(0,len(texto.get())), width=3, height=3)
 clear.grid(column=1, row=5)
-punto=tk.Button(text=".", command=funcpunto, width=3, height=3)
+punto=tk.Button(text=".", command=texto.insert(len(texto.get()),"."), width=3, height=3)
 punto.grid(column=3, row=4)
 igual=tk.Button(text="=", command=funcigual, width=3, height=3)
 igual.grid(column=4, row=5)
-
-
 window.mainloop()
