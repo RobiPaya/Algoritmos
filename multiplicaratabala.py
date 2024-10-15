@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import messagebox
 def func():
     numero=entrda.get()
     label.config(text=f'''1x{numero}={int(numero)*1}        6x{numero}={int(numero)*6}
