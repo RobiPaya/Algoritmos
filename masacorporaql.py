@@ -17,8 +17,4 @@ boton=tk.Button(text="CALCULAR",command=func)
 boton.place(x=125,y=90)
 label=tk.Label(text="")
 label.place(x=125,y=130)
-
-
-
-
 window.mainloop()
