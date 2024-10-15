@@ -17,8 +17,4 @@ boton=tk.Button(text="Ejecutar",command=func)
 boton.place(x=175,y=100)
 label=tk.Label(text="")
 label.place(x=150,y=130)
-
-
-
-
 window.mainloop()
