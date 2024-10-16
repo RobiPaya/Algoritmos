@@ -1,0 +1,14 @@
+{
+    "reta": {
+        "Peso": 20.0,
+        "Estatura": 0.23,
+        "IMC": 378.0718336483932,
+        "Estado": "obesidad"
+    },
+    "reto": {
+        "Peso": 34.0,
+        "Estatura": 1.4,
+        "IMC": 17.346938775510207,
+        "Estado": "Por Debajo"
+    }
+}
