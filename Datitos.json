@@ -1,0 +1,17 @@
+{
+    "persona": {
+        "Nombre": "1",
+        "Peso": 1.0,
+        "estatura": 1.0,
+        "imc": 1.0,
+        "peso corporal": "delgadez severa"
+    }
+}{
+    "persona": {
+        "Nombre": "12",
+        "Peso": 1.0,
+        "estatura": 1.0,
+        "imc": 1.0,
+        "peso corporal": "delgadez severa"
+    }
+}
