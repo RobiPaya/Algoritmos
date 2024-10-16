@@ -9,6 +9,8 @@ def guardar():
         peso=float(pesoentrada.get())
         estatura=float(estaturaentrada.get())
         imc=peso/(estatura**2)
+        if not nombre or not peso or not estatura:
+            messagebox.showwarning(title="Faltan", message="Datos")
         if imc<16:
             obeso="delgadez severa"
             messagebox.showerror(title="Cuidado", message="Tienes delgadez severa y un bajo peso corporal")
@@ -33,17 +35,22 @@ def guardar():
         elif imc>40:
             obeso="OBESO tipo III"
             messagebox.showwarning(title="Cuidado", message="Eres OBESO III")
-        nuevosdatos=({"persona":{"Nombre":nombre,"Peso":peso, "estatura":estatura,"imc":imc, "peso corporal":obeso}})
-        with open("Datitos.json","a") as archivo:
-            json.dump(nuevosdatos,archivo,indent=4)
+        nuevosdatos=({nombre:{"Peso":peso, "estatura":estatura,"imc":imc, "peso corporal":obeso}})
+        with open("Datitos.json","r") as archivo:
+            data=json.load(archivo)
+            data.update(nuevosdatos)
+        with open("Datitos.json","w") as archivo:
+            json.dump(data,archivo,indent=4)
     except:
-        messagebox.showwarning(title="Faltan", message="Datos")
+        with open("Datitos.json","w") as archivo:
+            json.dump(nuevosdatos,archivo,indent=4)
 
 def ver():
+    humanos=""
     with open("Datitos.json","r") as archivo:
         data=json.load(archivo)
-    texto=tk.Label(text=data["persona"])
-    texto.grid(column=0,row=4)
+    for x in (data):
+        humanos+=f"Nombre : {x}\n Masa : {data[x]["Peso"]}\nAltura : {data[x]["Estatura"]}\nIMC : {data[x]["imc"]}\n Estado : {data[x]["peso corpural"]}"
     
 nombretexto=tk.Label(text="Nombre : ")
 nombretexto.grid(column=0, row=0)
