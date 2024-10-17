@@ -1,18 +1,19 @@
 import tkinter as tk
 from tkinter import *
-from tkinter import messagebox
+window=tk.Tk()
 
 def opcion(seleccion):
     print(seleccion) #Esto es solo para saber que opción selecciona en el OptionMenu de las multas
 
 def multar():
+    window.destroy()
     windowmultar=tk.Tk()
     
     #Aqui empieza el OptionMenu
     variable = StringVar()
     variable.set("Value")
     choices = ['Multa', 'Multa 2', 'Multa 3']
-    menu = OptionMenu(windowmultar, variable, * choices)
+    menu = OptionMenu(windowmultar, variable, * choices, command=opcion)
     menu.grid(column=0, row=0, columnspan=2)
     
     #Textos y entradas
@@ -37,13 +38,11 @@ def multar():
     matriculaentrada.grid(column=1, row=4)
     
     enviarboton=tk.Button(text="Enviar", width=25)
-    enviarboton.grid(column=0, row=5, columnspan=2 )
-            
+    enviarboton.grid(column=0, row=5, columnspan=2)
+    
     windowmultar.mainloop()
 
 #Ventana principal
-window=tk.Tk()
-
 bienvenidotexto=tk.Label(text="Bienvenido!")
 bienvenidotexto.grid(column=0, row=0, columnspan=3)
 multarboton=tk.Button(text="Multar", width=10, command=multar)
