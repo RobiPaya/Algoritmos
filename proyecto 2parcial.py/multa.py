@@ -8,7 +8,6 @@ fechahoy=dt.datetime.now()
 dia=fechahoy.day
 mes=fechahoy.month
 año=fechahoy.year
-hora=fechahoy.minute
 def opcion(seleccion):
     print(seleccion) #Esto es solo para saber que opción selecciona en el OptionMenu de las multas
 
@@ -27,7 +26,20 @@ def multar():
             cobro=977.13
         elif multa=="Manejar mientras la licencia o permiso está suspendido":
             cobro=10,965.57
-        datos=({matricula:{"Nombre":nombre,"Fecha":fecha,"Hora":hora,"Tipo":multa,"Cobro":cobro}})
+        dialimite=dia+1
+        if dialimite==31 and mes==4 or mes==6 or mes==9 or mes==11:
+            dialimite=f"{1}/{mes+1}/{año}"
+        elif dialimite==32:
+            dialimite=f"{1}/{mes+1}/{año}"
+            if mes==13:
+                dialimite=f"{1}/{1}/{año}"
+        elif dialimite==30 and mes==2 and año%4==0:
+            dialimite=f"{1}/{mes+1}/{año}"
+        elif dialimite==29 and mes==2:
+            dialimite=f"{1}/{mes+1}/{año}"
+        else:
+            dialimite=f"{dia+1}/{mes}/{año}"
+        datos=({matricula:{"Nombre":nombre,"Fecha":fecha,"Fechalimite":dialimite,"Hora":hora,"Tipo":multa,"Cobro":cobro}})
         
         try:
             with open("reporte.json","r") as archivo:
