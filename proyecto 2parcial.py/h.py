@@ -1,9 +1,16 @@
 import tkinter as tk
+import json as js
+from tkinter import messagebox
 from tkinter import ttk as ttk
 from tkinter import *
+import datetime as dt
 
 window=tk.Tk()
 window.resizable(0,0)
+fechahoy=dt.datetime.now()
+dia=fechahoy.day
+mes=fechahoy.month
+año=fechahoy.year
 
 def reporte():
     frame.grid_forget()
@@ -15,14 +22,47 @@ def reporte():
     tk.Button(frame3, text="Volver", command=verdenuevo).grid(column=0, row=2)
 
 def multar():
+    def enviar():
+        ok=messagebox.askokcancel(title="Seguro?", message="Quieres enviar los datos?")
+        if ok:
+            fecha=fechaentrada.get()
+            nombre=nombreentrada.get()
+            hora=horaentrada.get()
+            matricula=matriculaentrada.get()
+            multa=tipomultas.get()
+            if multa=="No portar un faro delantero o posterior" or "Falta de llantas de refacción o herramientas para su cambio":
+                    cobro=651.42
+            elif multa=="No usar el casco de protección para motociclistas y acompañantes":
+                cobro=1302.84
+            elif multa=="Ingerir bebidas alcohólicas mientras se conduce":
+                cobro=977.13
+            elif multa=="Manejar mientras la licencia o permiso está suspendido":
+                cobro=10,965.57
+            dialimite=dia+1
+            if dialimite==31 and mes==4 or mes==6 or mes==9 or mes==11:
+                dialimite=f"{1}/{mes+1}/{año}"
+            elif dialimite==32:
+                dialimite=f"{1}/{mes+1}/{año}"
+                if mes==13:
+                    dialimite=f"{1}/{1}/{año}"
+            elif dialimite==30 and mes==2 and año%4==0:
+                dialimite=f"{1}/{mes+1}/{año}"
+            elif dialimite==29 and mes==2:
+                dialimite=f"{1}/{mes+1}/{año}"
+            else:
+                dialimite=f"{dia+1}/{mes}/{año}"
+            datos=({matricula:{"Nombre":nombre,"Fecha":fecha,"Fechalimite":dialimite,"Hora":hora,"Tipo":multa,"Cobro":cobro}})
+            try:
+                with open("reporte.json","r") as archivo:
+                    data=js.load(archivo)
+                    data.update(datos)
+                with open("reporte.json","w") as archivo:
+                    js.dump(data,archivo,indent=4)
+            except:
+                with open("reporte.json","w") as archivo:
+                    js.dump(datos,archivo,indent=4)
     frame.grid_forget()
     frame2.grid(column=0, row=0)
-    
-    #Aqui empieza el OptionMenu
-    variable = StringVar()
-    variable.set("Value")
-    choices = ['Multa', 'Multa 2', 'Multa 3']
-    OptionMenu(frame2, variable, * choices).grid(column=0, row=0, columnspan=2)
     
     #Textos y entradas
     tk.Label(frame2,text="Fecha : ").grid(column=0, row=1) #Texto de fecha
@@ -41,13 +81,19 @@ def multar():
     matriculaentrada=tk.Entry(frame2, justify="right")
     matriculaentrada.grid(column=1, row=4)
     
-    tk.Label(frame2, text="Sexo : ").grid(column=0, row=5) #Texto de sexo
+    tk.Label(frame2, text="Sexo : ").grid(column=0, row=6) #Texto de sexo
     tiposexo=ttk.Combobox(frame2, width=17, state="readonly", values=["Hombre","Mujer","Otre"])
-    tiposexo.grid(column=1, row=5)
+    tiposexo.grid(column=1, row=6)
     
+    #Aqui empieza el OptionMenu
+    tk.Label(frame2, text="Tipo de multa : ").grid(column=0, row=0)
+    tipomultas=ttk.Combobox(frame2, width=17,state="readonly",values=['No portar un faro delantero o posterior', 'Falta de llantas de refacción o herramientas para su cambio', 'No usar el casco de protección para motociclistas y acompañantes','Ingerir bebidas alcohólicas mientras se conduce','Manejar mientras la licencia o permiso está suspendido'])
+    tipomultas.grid(column=1, row=0)
+
     #Botones
-    tk.Button(frame2, text="Enviar", width=25).grid(column=0, row=6, columnspan=2) #Botón para enviar
-    tk.Button(frame2, text="Volver", width=25, command=verdenuevo).grid(column=0, row=7, columnspan=2) #Botón para volver
+    tk.Button(frame2, text="Enviar", width=25, command=enviar).grid(column=0, row=100, columnspan=2) #Botón para enviar
+    tk.Button(frame2, text="Volver", width=25, command=verdenuevo).grid(column=0, row=101, columnspan=2) #Botón para volver
+    
 
 #verdenuevo para volver
 def verdenuevo():
