@@ -11,7 +11,8 @@ fechahoy=dt.datetime.now()
 dia=str(fechahoy.day)
 mes=str(fechahoy.month)
 año=str(fechahoy.year)
-ahorahora=str(dt.datetime)
+horacutual=fechahoy.hour
+minutos=fechahoy.minute
 def reporte():
     def ver():
         cont=0
@@ -29,8 +30,16 @@ def reporte():
                         cobrototal+=data[x]["Cobro"]*1/2
                 respuesta.config(text=f"El total de multas en el dia fueron {cont}\nEl total de cobro fue de ${cobrototal:.2f}")
             elif diasemanames=="Semana":
-                pass
+                for x in data:
+                    fecha=str(data[x]["Fecha"])
+                    fecha=fecha.replace("/"," ")
+                    fecha=fecha.split()
+                    fechabien=dt.datetime(int(fecha[2]),int(fecha[1]),int(fecha[0]))
+                    if fechabien.strftime("%A")=="Monday":
+                        diasemana=int(fecha[0])-1
             elif diasemanames=="Mes":
+                cobrototal=0
+                cont=0
                 for x in data:
                     fecha=str(data[x]["Fecha"])
                     hora=str(data[x]["Hora"])
@@ -40,9 +49,16 @@ def reporte():
                     fecha=fecha.split()
                     if fecha[1]==mes:
                         cont+=1
-                        if fecha[0]<int(dia):
-                            if hora
-                            cobrototal=data[x]["Cobro"]
+                        if int(fecha[0])<int(dia):
+                            cobrototal+=data[x]["Cobro"]
+                        elif int(fecha[0])==int(dia)-1:
+                            if int(hora[0])>horacutual:
+                                cobrototal+=data[x]["Cobro"]
+                            elif int(hora[0])==horacutual:
+                                if int(hora[1])>=minutos:
+                                    cobrototal+=data[x]["Cobro"]
+                                else:
+                                    cobrototal+=data[x]["Cobro"]*1/2
                         else:
                             cobrototal+=data[x]["Cobro"]*1/2
                 respuesta.config(text=f"El total de multas en el dia fueron {cont}\nEl total de cobro fue de ${cobrototal:.2f}")
