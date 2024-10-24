@@ -96,16 +96,16 @@ def reporte():
                     respuesta.config(text=f"El total de multas en el dia fueron {cont}\nEl total de cobro fue de ${cobrototal:.2f}")
         except:
             messagebox.showinfo(title="No hay",message="NO HAY ARCHIVO DE MULTAS")
-        frame.grid_forget()
-        frame3.grid(column=0, row=0)
-        filtro=ttk.Combobox(frame3, state="readonly", values=["Día","Semana","Mes","Año"])
-        filtro.grid(column=0, row=0)
-        tk.Button(frame3, text="ver",command=ver).grid(column=0,row=2)
-        eleccion=filtro.get()
-        print(eleccion)
-        tk.Button(frame3, text="Volver", command=verdenuevo).grid(column=0, row=3)
-        respuesta=tk.Label(frame3,text="")
-        respuesta.grid(column=0,row=1)
+    frame.grid_forget()
+    frame3.grid(column=0, row=0)
+    filtro=ttk.Combobox(frame3, state="readonly", values=["Día","Semana","Mes","Año"])
+    filtro.grid(column=0, row=0)
+    tk.Button(frame3, text="ver",command=ver).grid(column=0,row=2)
+    eleccion=filtro.get()
+    print(eleccion)
+    tk.Button(frame3, text="Volver", command=verdenuevo).grid(column=0, row=3)
+    respuesta=tk.Label(frame3,text="")
+    respuesta.grid(column=0,row=1)
 
 
 def multar():
@@ -113,6 +113,8 @@ def multar():
         ok=messagebox.askokcancel(title="Seguro?", message="Quieres enviar los datos?")
         if ok:
             fecha=fechaentrada.get()
+            fecha1=fecha.replace("/"," ")
+            fecha1=fecha1.split()
             nombre=nombreentrada.get()
             hora=horaentrada.get()
             matricula=matriculaentrada.get()
@@ -126,19 +128,9 @@ def multar():
                 cobro=977.13
             elif multa=="Manejar mientras la licencia o permiso está suspendido":
                 cobro=10,965.57
-            dialimite=int(dia)+1
-            if dialimite==31 and mes==4 or mes==6 or mes==9 or mes==11:
-                dialimite=f"{1}/{int(mes)+1}/{año}"
-            elif dialimite==32:
-                dialimite=f"{1}/{int(mes)+1}/{año}"
-                if mes==13:
-                    dialimite=f"{1}/{1}/{año}"
-            elif dialimite==30 and mes==2 and año%4==0:
-                dialimite=f"{1}/{int(mes)+1}/{año}"
-            elif dialimite==29 and mes==2:
-                dialimite=f"{1}/{int(mes)+1}/{año}"
-            else:
-                dialimite=f"{int(dia)+1}/{mes}/{año}"
+            fechapras=dt.datetime(int(fecha1[2]),int(fecha1[1]),int(fecha1[0]))
+            dialimiteendatetime=fechapras+dt.timedelta(days=1)
+            dialimite=f"{dialimiteendatetime.day}/{dialimiteendatetime.month}/{dialimiteendatetime.day}"
             datos=({matricula:{"Nombre":nombre,"Sexo":sexo,"Fecha":fecha,"Fechalimite":dialimite,"Hora":hora,"Tipo":multa,"Cobro":cobro}})
             try:
                 with open("reporte.json","r") as archivo:
@@ -149,13 +141,14 @@ def multar():
             except:
                 with open("reporte.json","w") as archivo:
                     js.dump(datos,archivo,indent=4)
-            fechaentrada.delete(0,len(fechaentrada.get()))
+            ttk.Button(frame2, command=multar())
+            """fechaentrada.delete(0,len(fechaentrada.get()))
             fechaentrada.insert(0,f"{dia}/{mes}/{año}")
             nombreentrada.delete(0,len(nombreentrada.get()))
             matriculaentrada.delete(0,len(matriculaentrada.get()))
             horaentrada.delete(0,len(horaentrada.get()))
             tipomultas.delete(0,len(tipomultas.get()))
-            tiposexo.delete(0,len(tiposexo.get()))
+            tiposexo.delete(0,len(tiposexo.get()))"""
     frame.grid_forget()
     frame2.grid(column=0, row=0)
     

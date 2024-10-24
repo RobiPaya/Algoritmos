@@ -43,5 +43,23 @@
         "Hora": "12:00",
         "Tipo": "Falta de llantas de refacci\u00f3n o herramientas para su cambio",
         "Cobro": 651.42
+    },
+    "rtytr-34frdf": {
+        "Nombre": "perro",
+        "Sexo": "Mujer",
+        "Fecha": "24/10/2024",
+        "Fechalimite": "25/10/25",
+        "Hora": "13:00",
+        "Tipo": "No usar el casco de protecci\u00f3n para motociclistas y acompa\u00f1antes",
+        "Cobro": 651.42
+    },
+    "erghuyhu-56g": {
+        "Nombre": "trtr",
+        "Sexo": "Otre",
+        "Fecha": "24/10/2024",
+        "Fechalimite": "25/10/25",
+        "Hora": "5:00",
+        "Tipo": "No usar el casco de protecci\u00f3n para motociclistas y acompa\u00f1antes",
+        "Cobro": 651.42
     }
 }
