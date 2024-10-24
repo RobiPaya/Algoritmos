@@ -25,5 +25,23 @@
         "Hora": "17:00",
         "Tipo": "No usar el casco de protecci\u00f3n para motociclistas y acompa\u00f1antes",
         "Cobro": 651.42
+    },
+    "perop-peore": {
+        "Nombre": "peres",
+        "Sexo": "Hombre",
+        "Fecha": "19/10/2024",
+        "Fechalimite": "24/10/2024",
+        "Hora": "14:50",
+        "Tipo": "Ingerir bebidas alcoh\u00f3licas mientras se conduce",
+        "Cobro": 651.42
+    },
+    "389ijekjke": {
+        "Nombre": "pref",
+        "Sexo": "Hombre",
+        "Fecha": "23/10/2024",
+        "Fechalimite": "24/10/2024",
+        "Hora": "12:00",
+        "Tipo": "Falta de llantas de refacci\u00f3n o herramientas para su cambio",
+        "Cobro": 651.42
     }
 }
