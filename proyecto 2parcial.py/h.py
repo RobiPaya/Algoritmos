@@ -98,7 +98,7 @@ def reporte():
             messagebox.showinfo(title="No hay",message="NO HAY ARCHIVO DE MULTAS")
     frame.grid_forget()
     frame3.grid(column=0, row=0)
-    filtro=ttk.Combobox(frame3, state="readonly", values=["Día","Semana","Mes","Año"])
+    filtro=ttk.Combobox(frame3, state="readonly", values=["Día","Semana","Mes"])
     filtro.grid(column=0, row=0)
     tk.Button(frame3, text="ver",command=ver).grid(column=0,row=2)
     eleccion=filtro.get()
@@ -139,16 +139,9 @@ def multar():
                 with open("reporte.json","w") as archivo:
                     js.dump(data,archivo,indent=4)
             except:
-                with open("reporte.json","w") as archivo:
+                with open("reporte.json","w") as archivo: 
                     js.dump(datos,archivo,indent=4)
             ttk.Button(frame2, command=multar())
-            """fechaentrada.delete(0,len(fechaentrada.get()))
-            fechaentrada.insert(0,f"{dia}/{mes}/{año}")
-            nombreentrada.delete(0,len(nombreentrada.get()))
-            matriculaentrada.delete(0,len(matriculaentrada.get()))
-            horaentrada.delete(0,len(horaentrada.get()))
-            tipomultas.delete(0,len(tipomultas.get()))
-            tiposexo.delete(0,len(tiposexo.get()))"""
     frame.grid_forget()
     frame2.grid(column=0, row=0)
     

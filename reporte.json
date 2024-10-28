@@ -61,5 +61,23 @@
         "Hora": "5:00",
         "Tipo": "No usar el casco de protecci\u00f3n para motociclistas y acompa\u00f1antes",
         "Cobro": 651.42
+    },
+    "dtf4902": {
+        "Nombre": "Ricardo Urbina",
+        "Sexo": "Hombre",
+        "Fecha": "28/10/2024",
+        "Fechalimite": "29/10/29",
+        "Hora": "23:00",
+        "Tipo": "Falta de llantas de refacci\u00f3n o herramientas para su cambio",
+        "Cobro": 651.42
+    },
+    "4u6-uo4": {
+        "Nombre": "Diego",
+        "Sexo": "Hombre",
+        "Fecha": "23/09/2024",
+        "Fechalimite": "24/10/2024",
+        "Hora": "18:00",
+        "Tipo": "No usar el casco de protecci\u00f3n para motociclistas y acompa\u00f1antes",
+        "Cobro": 651.42
     }
 }
