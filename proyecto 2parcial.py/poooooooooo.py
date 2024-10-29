@@ -27,6 +27,11 @@ class circulo(figura):
         self.radio=radio
     def area(self):
         return 3.1416*(self.radio**2)
+class cuadrado(figura):
+    def __init__(self, lado):
+        self.lado=lado
+    def area(self):
+        return self.lado**2
 #instanciar la clase figura
 
 #Definiciones para el tkinter
