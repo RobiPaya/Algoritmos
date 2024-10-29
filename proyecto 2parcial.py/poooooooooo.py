@@ -1,3 +1,4 @@
+import math
 class figura:
     def __init__(self,lado1,lado2):
         self.lado1=lado1
@@ -15,7 +16,16 @@ class trianglulo(rectangulo):
         super().__init__(base, altura)
     def area(self):
         return super().area()/2
-
+class hexagono(figura)  :
+    def __init__(self, lado):
+        self.lado=lado
+    def area(self):
+        return ((3*(3**0.5))*self.lado**2)/2
+class circulo(figura):
+    def __init__(self, radio):
+        self.radio=radio
+    def area(self):
+        return 3.1416*(self.radio**2)
 #instanciar la clase figura
-cuadro =trianglulo(10,20)
+cuadro=circulo(5)
 print(cuadro.resulta())
