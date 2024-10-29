@@ -14,8 +14,7 @@ class trianglulo(rectangulo):
     def __init__(self, base, altura):
         super().__init__(base, altura)
     def area(self):
-        area=super().area()
-        return area/2
+        return super().area()/2
 
 #instanciar la clase figura
 cuadro =trianglulo(10,20)
