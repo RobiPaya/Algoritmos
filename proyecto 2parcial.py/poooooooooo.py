@@ -1,4 +1,5 @@
 import math
+import tkinter as tk
 class figura:
     def __init__(self,lado1,lado2):
         self.lado1=lado1
@@ -27,5 +28,21 @@ class circulo(figura):
     def area(self):
         return 3.1416*(self.radio**2)
 #instanciar la clase figura
-cuadro=circulo(5)
-print(cuadro.resulta())
+
+#Definiciones para el tkinter
+def cuadrado_boton():
+    frame.grid_forget()
+    
+    
+window=tk.Tk()
+
+frame=tk.Frame(window)
+frame.columnconfigure(0, weight=1)
+frame.grid(column=0, row=0)
+
+tk.Button(frame, text="Cuadrado", command=cuadrado_boton).grid(column=0, row=0)
+tk.Button(frame, text="Triandulo").grid(column=1, row=0)
+tk.Button(frame, text="Ciruclo").grid(column=2, row=0)
+tk.Button(frame, text="Hexagono").grid(column=3, row=0)
+
+window.mainloop()
