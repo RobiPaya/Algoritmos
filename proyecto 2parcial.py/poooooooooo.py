@@ -8,7 +8,15 @@ class figura:
     
     def resulta(self):
         return f"El area del {self.__class__.__name__} es {self.area()}"
+class rectangulo(figura):
+    pass
+class trianglulo(rectangulo):
+    def __init__(self, base, altura):
+        super().__init__(base, altura)
+    def area(self):
+        area=super().area()
+        return area/2
 
 #instanciar la clase figura
-cuadro =figura(10,20)
+cuadro =trianglulo(10,20)
 print(cuadro.resulta())
