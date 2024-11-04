@@ -1,9 +1,20 @@
+import json as js
 import tkinter as tk
 
 window=tk.Tk()
 
+
+def extraerdatos(event):
+    codigo_entradita=codigo_entrada.get()
+    with open("cleintes.json","r") as archivo:
+        data=js.load(archivo)
+    for x in data:
+        if x==codigo_entradita:
+            print(codigo_entradita)
+            
 tk.Label(text="Código").grid(column=0, row=0)
 codigo_entrada=tk.Entry()
+codigo_entrada.bind("<Return>", extraerdatos)
 codigo_entrada.grid(column=0, row=1)
 
 tk.Label(text="Saldo:").grid(column=1, row=0)
