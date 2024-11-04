@@ -15,11 +15,11 @@ def guardar():
     telefono=telefono_entrada.get()
     saldo=saldo_entrada.get()
     try:
-        with open("clientes.json","r") as archivo:
-            for x in archivo:
+        with open("cleintes.json","r") as archivo:
+            data=js.load(archivo)
+            for x in data:
                 lista.append(x)
-            lista=sorted(lista,key=lambda columna:columna[0], reverse=True)
-            ultimocliente=int(lista[0])
+            ultimocliente=int(max(lista))
             nuevocliente=ultimocliente+1
     except:
         nuevocliente=1
