@@ -1,6 +1,5 @@
 import tkinter as tk
-import json as js
-
+from clientes import clientes
 window=tk.Tk()
 
 def limpiar():
@@ -14,25 +13,9 @@ def guardar():
     direccion=direccion_entrada.get()
     telefono=telefono_entrada.get()
     saldo=saldo_entrada.get()
-    try:
-        with open("cleintes.json","r") as archivo:
-            data=js.load(archivo)
-            for x in data:
-                lista.append(x)
-            ultimocliente=int(max(lista))
-            nuevocliente=ultimocliente+1
-    except:
-        nuevocliente=1
+    nuevocliente=clientes.clienteid()
     datos={nuevocliente:{"nombre":nombre,"direccion":direccion,"telefono":telefono,"saldo":saldo}}
-    try:
-        with open("cleintes.json","r") as archivo:
-            data=js.load(archivo)
-            data.update(datos)
-        with open("cleintes.json","w") as archivo:
-            js.dump(data,archivo,indent=4)
-    except:
-        with open("cleintes.json","w") as archivo: 
-            js.dump(datos,archivo,indent=4)
+    clientes.registrarcliente(datos=datos)
 
 window.title("Alta cleintes")
 
