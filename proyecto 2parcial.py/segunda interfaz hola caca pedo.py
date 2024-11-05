@@ -2,6 +2,7 @@ import json as js
 import tkinter as tk
 from clientes import clientes
 from abonos import abonos
+from tkinter import scrolledtext
 window=tk.Tk()
 
 
@@ -28,11 +29,14 @@ abono_entrada=tk.Entry(text="$")
 abono_entrada.grid(column=1, row=3)
 
 tk.Label(text="Reporte de abonos").grid(column=0, row=5, columnspan=2)
-
+text_area = scrolledtext.ScrolledText(window, wrap=tk.WORD, width=40, height=1)
+text_area.grid(column=0, row=6)
+text_area.insert(tk.INSERT, "Aquí puedes escribir tu texto...\n" * 10)
+text_area.config(state="disabled")
 
 tk.Label(text="").grid(column=0, row=4)
 
-tk.Button(text="Limpiar").grid(column=0, row=6)
-tk.Button(text="Cerrar").grid(column=1, row=6)
+tk.Button(text="Limpiar").grid(column=0, row=8)
+tk.Button(text="Cerrar").grid(column=1, row=8)
 
 window.mainloop()
