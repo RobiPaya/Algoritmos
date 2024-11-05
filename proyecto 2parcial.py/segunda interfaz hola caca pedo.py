@@ -1,25 +1,26 @@
 import json as js
 import tkinter as tk
-
+from clientes import clientes
+from abonos import abonos
 window=tk.Tk()
 
 
 def extraerdatos(event):
-    codigo_entradita=codigo_entrada.get()
-    with open("cleintes.json","r") as archivo:
-        data=js.load(archivo)
-    for x in data:
-        if x==codigo_entradita:
-            print(codigo_entradita)
+    datos=abonos.buscarclientes(codigo_entrada=codigo_entrada)
+    registro.config(text=datos[0])
+    saldo.config(text=datos[1])
+
 
             
 tk.Label(text="Código").grid(column=0, row=0)
 codigo_entrada=tk.Entry()
 codigo_entrada.bind("<Return>", extraerdatos)
 codigo_entrada.grid(column=0, row=1)
-tk.Label(text="").grid(column=0, row=2) #Label debajo del codigo de entrada cpdigo
+registro=tk.Label(text="")
+registro.grid(column=0, row=2) #Label debajo del codigo de entrada cpdigo
 
-tk.Label(text="Saldo:").grid(column=1, row=0)
+saldo=tk.Label(text="Saldo:")
+saldo.grid(column=1, row=0)
 
 
 tk.Label(text="Abono").grid(column=1,row=2)

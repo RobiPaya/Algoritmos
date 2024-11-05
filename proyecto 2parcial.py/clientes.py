@@ -1,11 +1,5 @@
 import json as js
 class clientes():
-    def __init__(self,idcodigo,idnombre,iddireccion,idtelefono,idsaldo):
-        self.idcodigo=idcodigo
-        self.idnombre=idnombre
-        self.iddireccion=iddireccion
-        self.idtelefono=idtelefono
-        self.idsaldo=idsaldo
     def registrarcliente(datos):
         try:
             with open("cleintes.json","r") as archivo:
@@ -16,8 +10,6 @@ class clientes():
         except:
             with open("cleintes.json","w") as archivo: 
                 js.dump(datos,archivo,indent=4)
-    def buscarclientes():
-        pass
     def clienteid():
         lista=[]
         try:
