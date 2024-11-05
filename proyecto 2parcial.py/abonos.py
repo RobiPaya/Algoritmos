@@ -18,5 +18,4 @@ class abonos:
         else:
             reporte="NO SE ENCONTRO"
             saldo=""
-        return reporte,saldo
-        
+        return reporte,saldo    
