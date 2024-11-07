@@ -7,7 +7,7 @@ window=tk.Tk()
 
 
 def extraerdatos(event):
-    datos=abonos.buscarclientes(codigo_entrada=codigo_entrada)
+    datos=abonos.buscarclientes(codigo_entrada.get())
     registro.config(text=datos[0])
     saldo.config(text=datos[1])
 
