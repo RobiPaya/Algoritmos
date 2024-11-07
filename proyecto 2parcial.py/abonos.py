@@ -19,5 +19,13 @@ class abonos:
             reporte="NO SE ENCONTRO"
             saldo=""
         return reporte,saldo   
-    def registrarabono():
-        pass
+    def registrarabono(codigo_entrada):
+        codigo_entradita=codigo_entrada.get()
+        try:
+            with open("abonos.json","r") as archivo:
+                data=js.load(archivo)
+                for x in data:
+                    if x==codigo_entradita:
+                        pass
+        except:
+            pass
