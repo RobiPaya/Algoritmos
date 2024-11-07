@@ -8,10 +8,19 @@ window=tk.Tk()
 
 def extraerdatos(event):
     datos=abonos.buscarclientes(codigo_entrada=codigo_entrada,abono_entrada=abono_entrada,text_area=text_area)
-    mostrar=abonos.mostrarregistro(codigo_entrada=codigo_entrada)
-    text_area.insert(tk.INSERT,mostrar)
-    registro.config(text=datos[0])
-    saldo.config(text=datos[1])
+    if datos[1]=="":
+        registro.config(text="")
+        saldo.config(text="Saldo:")
+        text_area.delete("1.0",tk.END)
+        abono_entrada.config(state="disabled")
+        pass
+    else:
+        mostrar=abonos.mostrarregistro(codigo_entrada=codigo_entrada)
+        text_area.insert(tk.INSERT,mostrar)
+        registro.config(text=datos[0])
+        saldo.config(text=datos[1])
+
+
 def registrarabonos(event):
     datos=abonos.registrarabono(codigo_entrada=codigo_entrada,abono_entrada=abono_entrada)
     saldo.config(text=f"Saldo: ${datos}")

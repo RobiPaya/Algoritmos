@@ -19,8 +19,6 @@ class abonos:
             reporte=f"Nombre: {nombre}\nDireccion :{direccion}\nTelefono: {telefono}"
             saldo=f"Saldo: ${saldomostrar}"
         else:
-            abono_entrada.config(state="disabled")
-            text_area.delete("1.0",tk.END)
             reporte="NO SE ENCONTRO"
             saldo=""
         return reporte,saldo   
