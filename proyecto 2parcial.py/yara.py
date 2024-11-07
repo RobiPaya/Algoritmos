@@ -12,7 +12,7 @@ def guardar():
     nombre=nombre_entrada.get()
     direccion=direccion_entrada.get()
     telefono=telefono_entrada.get()
-    saldo=saldo_entrada.get()
+    saldo=int(saldo_entrada.get())
     nuevocliente=clientes.clienteid()
     datos={nuevocliente:{"nombre":nombre,"direccion":direccion,"telefono":telefono,"saldo":saldo}}
     clientes.registrarcliente(datos=datos)

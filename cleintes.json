@@ -1,68 +1,14 @@
 {
     "1": {
-        "nombre": "dfsdf",
-        "direccion": "sdfsdf",
-        "telefono": "sdfsdf",
-        "saldo": "sdfsdf"
+        "nombre": "Diego",
+        "direccion": "POLI",
+        "telefono": "6251032159",
+        "saldo": -109850
     },
     "2": {
-        "nombre": "dfsdf",
-        "direccion": "sdfsdf",
-        "telefono": "sdfsdf",
-        "saldo": "sdfsdf"
-    },
-    "3": {
-        "nombre": "dfsdf",
-        "direccion": "sdfsdf",
-        "telefono": "sdfsdf",
-        "saldo": "sdfsdf"
-    },
-    "4": {
-        "nombre": "dfsdf",
-        "direccion": "sdfsdf",
-        "telefono": "sdfsdf",
-        "saldo": "sdfsdf"
-    },
-    "5": {
-        "nombre": "dfsdf",
-        "direccion": "sdfsdf",
-        "telefono": "sdfsdf",
-        "saldo": "sdfsdf"
-    },
-    "60": {
-        "nombre": "dfsdf",
-        "direccion": "sdfsdf",
-        "telefono": "sdfsdf",
-        "saldo": "sdfsdf"
-    },
-    "61": {
-        "nombre": "dfsdf",
-        "direccion": "sdfsdf",
-        "telefono": "sdfsdf",
-        "saldo": "sdfsdf"
-    },
-    "62": {
-        "nombre": "sdasdsa",
-        "direccion": "dsada",
-        "telefono": "sadasd",
-        "saldo": "asdasdas"
-    },
-    "63": {
-        "nombre": "sdasdsa",
-        "direccion": "dsada",
-        "telefono": "sadasd",
-        "saldo": "asdasdas"
-    },
-    "64": {
-        "nombre": "dsad",
-        "direccion": "sadasd",
-        "telefono": "sadasd",
-        "saldo": "sadasd"
-    },
-    "65": {
-        "nombre": "dsad",
-        "direccion": "sadasd",
-        "telefono": "sadasd",
-        "saldo": "sadasd"
+        "nombre": "Estrada",
+        "direccion": "Elpollo",
+        "telefono": "5625736824",
+        "saldo": 11000
     }
 }
