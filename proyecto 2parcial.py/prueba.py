@@ -1,9 +1,17 @@
 import csv
-
+sumacalif=0
+reprobados=0
+cont=0
 with open("parcial.csv","r") as archivo:
      calificaciones = csv.reader(archivo)
+     print(calificaciones)
      calif = []
      for alumno in calificaciones:
-          if alumno[5] != "Calificación":     #[5] es el numero de columna donde esta la calificacion del alumno
+          if alumno[5] != "Calificacion":     #[5] es el numero de columna donde esta la calificacion del alumno
                calif.append(float(alumno[5]))
-print(calif)
+for x in calif:
+     sumacalif+=x
+     cont+=1
+     if x<60:
+          reprobados+=1
+print(sumacalif/cont,reprobados)
