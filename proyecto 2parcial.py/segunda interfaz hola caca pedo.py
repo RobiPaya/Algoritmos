@@ -1,6 +1,4 @@
-import json as js
 import tkinter as tk
-from clientes import clientes
 from abonos import abonos
 from tkinter import scrolledtext
 window=tk.Tk()
