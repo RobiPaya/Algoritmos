@@ -13,7 +13,7 @@ with open("parcial.csv","r") as archivo:
                     malto=alumno[0]
                if float(alumno[5])==min(calif):
                     mameno=alumno[0]
-for x in calif:
+for x in calif:                                                              
      sumacalif+=x
      cont+=1
      if x<60:
