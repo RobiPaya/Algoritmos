@@ -11,3 +11,5 @@ class socios:
             datos={"nombre":nombre,"pagos":pago,"sexo":sexo,"edad":edad,"entrenador":entrenador}
             dt=pd.DataFrame(datos)
             dt.to_csv("socios.csv", mode='a', index=False)
+    def consultar():
+        
