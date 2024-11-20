@@ -12,4 +12,4 @@ class socios:
             dt=pd.DataFrame(datos)
             dt.to_csv("socios.csv", mode='a', index=False)
     def consultar():
-        
+        pass
