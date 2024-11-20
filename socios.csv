@@ -1,7 +1,4 @@
-nombre,pagos,sexo,edad,entrenador
-fatima,500,m,10,Fatima
-negra,500,f,18,DIEGO
-diego,500,m,70,Elvis
-fatima,500,m,10,Fatima
-negra,500,f,18,DIEGO
-diego,500,m,70,Elvis
+nombre,sexo,edad,entrenador
+fatima,m,10,Fatima
+negra,f,18,DIEGO
+diego,m,70,Elvis
