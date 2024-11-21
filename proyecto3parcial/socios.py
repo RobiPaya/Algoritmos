@@ -17,4 +17,4 @@ class socios:
     def editar(posicion,columna,datoentrada):
         archivo=pd.read_csv("socios.csv")
         archivo.loc[[posicion],[columna]]=datoentrada
-        archivo.to_csv("socios.csv",mode="w")   
+        archivo.to_csv("socios.csv",mode="w",index=False)  

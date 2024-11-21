@@ -1,7 +1,4 @@
-,nombre,sexo,edad,entrenador
-0,fatima,m,10,Fatima
-1,roberto,f,18,DIEGO
-2,diego,m,70,Elvis
-fatima,m,10,Fatima
-negra,f,18,DIEGO
-diego,m,70,Elvis
+nombre,sexo,edad,entrenador,estado
+fatima,m,10,Fatima,activo
+roberto,f,18,DIEGO,activo
+diego,m,70,Elvis,activo

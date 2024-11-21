@@ -1,3 +1,4 @@
-from socios import socios
-hola=socios.consultar(2)
-socios.editar(1,"nombre","roberto")
+from pagos import pagos
+import datetime as dt
+hoy=dt.datetime.now()
+pagos.registro([300,300,300],[hoy,hoy,hoy])
