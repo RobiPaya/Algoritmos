@@ -26,7 +26,8 @@ class pagos:
                     data[codigo]["fechas"]=fechas
                     data[codigo]["abonos"]=pagoss
                     data[codigo]["fecha_limite"]=fecha_limite
-                    
+                    socios=pd.read_csv("socios.csv")
+                    socios.loc[[codigo],["estado"]]="activo"
                     with open("abonos.json","w") as archivo2:
                         js.dump(data,archivo2,indent=4)
         except:
