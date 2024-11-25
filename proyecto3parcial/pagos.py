@@ -1,20 +1,40 @@
-import pandas as pd
+import json as js
 import datetime as dt
+import pandas as pd
 class pagos:
-    def registro(pago,fechas):
-        #Al momento de agregar se necesita verificar si el codigo ya esta en la base de datos, si esta solo se agrega el pago, pero si no, se tiene que agregar todo desde cero
+    def registro(codigo,pago):
+        sticky=dt.datetime.now()
+        fecha_limite=sticky+dt.timedelta(days=30)
+        datos={codigo:{"pagos":[pago],"fechas":[sticky.strftime("%d-%m-%Y")],"fecha_limite":fecha_limite}}
         try:
-            with open("pagos.csv") as archivo:
-                pass
-            datos={"pagos_del_socio":[pago],"fechas_de_pago":[fechas]}
-            dt=pd.DataFrame(datos)
-            dt.to_csv("pagos.csv", mode='a', index=False, header=False)
+            with open("pagos.json","r") as archivo:
+                data=js.load(archivo)
+                for x in data:
+                    if x==codigo:
+                        esta=1
+                if not esta:
+                    with open("abonos.json","r") as archivo:
+                        data=js.load(archivo)
+                        data.update(datos)
+                    with open("abonos.json","w") as archivo:
+                        js.dump(data,archivo,indent=4)
+                else:
+                    fechas=data[codigo]["fechas"]
+                    pagoss=data[codigo]["pagos"]
+                    fechas.append(sticky.strftime("%d-%m-%Y"))
+                    pagoss.append(pago)
+                    data[codigo]["fechas"]=fechas
+                    data[codigo]["abonos"]=pagoss
+                    data[codigo]["fecha_limite"]=fecha_limite
+                    
+                    with open("abonos.json","w") as archivo2:
+                        js.dump(data,archivo2,indent=4)
         except:
-            datos={"pagos_del_socio":[pago],"fechas_de_pago":[fechas]}
-            dt=pd.DataFrame(datos)
-            dt.to_csv("pagos.csv", mode='a', index=False)
+            with open("pagos.json","w") as archivo: 
+                js.dump(datos,archivo,indent=4)
     def consulta():
-        pass
+        with open("pagos.josn","r") as archivo:
+            data=js.load(archivo)
     def cortediario():
         pass
 
