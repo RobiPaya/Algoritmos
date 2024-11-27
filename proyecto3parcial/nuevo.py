@@ -87,23 +87,41 @@ def socios_consultar():
     idconsultada.bind("<Return>", extraerdatos)
     tk.Button(frame_consultar, text="Volver", command=destruir_framex_y_mostrar_socios).grid(column=0, row=otrocontadornosecreto+2)
 def socios_registar():
-    def registrar_socios():
-        nombre.get()
-        if not nombre or not sexo or not fechadenacimiento:
-            messagebox.showerror("Error", "Faltan datos")
+    cambios_entrada=tk.StringVar()
     ventana.title("Socios registrar")
+    def registrar_socios():
+        nombre_geteado=nombre.get()
+        sexo_getado=sexo.get()
+        fechadenacimiento_geteado=fechadenacimiento.get()
+        if not nombre_geteado or not sexo_getado or not fechadenacimiento_geteado:
+            messagebox.showerror("Error", "Faltan datos")
+    def meter_guion(*args):
+        verificar2=cambios_entrada.get()
+        if len(verificar2)==2:
+            nuevotexto=verificar2+"-"
+            fechadenacimiento.delete(0, tk.END)
+            fechadenacimiento.insert(0, nuevotexto)
+        elif len(verificar2)==5:
+            nuevotexto=verificar2+"-"
+            fechadenacimiento.delete(0, tk.END)
+            fechadenacimiento.insert(0, nuevotexto)
+        elif len(verificar2)>10:
+            fechadenacimiento.delete(10, tk.END)
     frame_consultar.grid_forget()
     frame_socios.grid_forget()
     frame_registrar.grid(column=0, row=0)
     tk.Label(frame_registrar, text="Nombre : ").grid(column=0, row=0)
-    nombre=tk.Entry(frame_registrar).grid(column=1, row=0)
+    nombre=tk.Entry(frame_registrar)
+    nombre.grid(column=1, row=0)
     tk.Label(frame_registrar, text="Sexo : ").grid(column=0, row=1)
-    sexo=tk.Entry(frame_registrar).grid(column=1, row=1)
+    sexo=tk.Entry(frame_registrar)
+    sexo.grid(column=1, row=1)
     tk.Label(frame_registrar, text="Fecha de nacimiento : ").grid(column=0, row=2)
-    fechadenacimiento=tk.Entry(frame_registrar).grid(column=1, row=2)
+    cambios_entrada.trace_add("write", meter_guion)
+    fechadenacimiento=tk.Entry(frame_registrar, textvariable=cambios_entrada)
+    fechadenacimiento.grid(column=1, row=2)
     tk.Button(frame_registrar, text="Registrar", command=registrar_socios).grid(column=1, row=4)
     tk.Button(frame_registrar, text="Volver", command=socios_boton).grid(column=0, row=4)
-
 
 #Esto es secreto, no ver
 def secretouwu():
