@@ -2,7 +2,7 @@ import pandas as pd
 class socios:
     def registrar(nombre,sexo,fechadenacimiento,entrenador,estado):
         try:
-            with open("socios.csv") as archivo:
+            with open("socios.csv"):
                 pass
             datos={"nombre":nombre,"sexo":sexo,"fecha_de_nacimiento":fechadenacimiento,"entrenador":entrenador,"estado":estado}
             dt=pd.DataFrame(datos)
