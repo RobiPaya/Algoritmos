@@ -13,5 +13,13 @@
         "Hora": "dfdf",
         "Tipo": "No usar el casco de protecci\u00f3n para motociclistas y acompa\u00f1antes",
         "Cobro": 651.42
+    },
+    "41": {
+        "Nombre": "1243",
+        "Fecha": "28/11/2024",
+        "Fechalimite": "1/12/2024",
+        "Hora": "41",
+        "Tipo": "Falta de llantas de refacci\u00f3n o herramientas para su cambio",
+        "Cobro": 651.42
     }
 }

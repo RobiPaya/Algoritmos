@@ -14,17 +14,19 @@ class asistencias:
             data=pd.DataFrame(datos)
             data.to_csv("asistencias.csv", mode='a', index=False)
     def reporte():
+        posicion=0
         cont=0
         lista_ya_registrados=[]
         fecha_hoy=dt.datetime(dt.datetime.now().year,dt.datetime.now().month,dt.datetime.now().day)
         archivo=pd.read_csv("asistencias.csv")
         socios=pd.read_csv("socios.csv")
         for x in archivo["codigo"]:
-            print(lista_ya_registrados)
             if x in lista_ya_registrados:
+                posicion+=1
                 pass
             else:
-                fecha_a_descomponer=archivo.iloc[x]["fecha"]
+                fecha_a_descomponer=archivo.iloc[posicion]["fecha"]
+                posicion+=1
                 fecha_descompuesta=fecha_a_descomponer.replace("-"," ").split()
                 fecha=dt.datetime(int(fecha_descompuesta[2]),int(fecha_descompuesta[1]),int(fecha_descompuesta[0]))
                 if fecha==fecha_hoy:

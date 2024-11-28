@@ -9,4 +9,5 @@ import datetime as dt
 #print(pagos.cortemensual())
 #print(pagos.cortediario())
 #print(entrenadores.controldesocios())
-print(asistencias.reporte())
+#print(asistencias.reporte())
+pagos.registro(1,300)
