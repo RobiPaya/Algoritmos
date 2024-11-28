@@ -2,7 +2,7 @@ import json as js
 import datetime as dt
 import pandas as pd
 class pagos:
-    def registro(codigo,pago):
+    def registro(codigo,pago):#agrega el pago con el codigo 🎂🎂
         esta=0
         sticky=dt.datetime.now()
         fecha_limite=sticky+dt.timedelta(days=30)
@@ -42,8 +42,8 @@ class pagos:
         with open("pagos.josn","r") as archivo:
             data=js.load(archivo)
             datos=data[codigo]
-            return datos
-    def cortediario():
+            return datos#te regresa el diccionario del socio con el id
+    def cortediario():#reporte de las ganancias diarias
         total=0
         sticky=dt.datetime.now().strftime("%d-%m-%Y")
         with open("pagos.json","r") as archivo:
@@ -56,7 +56,20 @@ class pagos:
                         pago=data[x]["pagos"]
                         total+=pago[posicion]
         return total
-            
-                        
-                    
+    def cortemensual():#reporte de las ganancias mensuales
+        total=0
+        sticky=dt.datetime.now()
+        mes=sticky-dt.timedelta(30)
+        with open("pagos.json","r") as archivo:
+            data=js.load(archivo)
+            for x in data:
+                persona=data[x]["fechas"]
+                for y in persona:
+                    fecha_descompuesta=y.replace("-"," ").split()
+                    fecha=dt.datetime(int(fecha_descompuesta[2]),int(fecha_descompuesta[1]),int(fecha_descompuesta[0]))
+                    if fecha>=mes:
+                        posicion=persona.index(y)
+                        pago=data[x]["pagos"]
+                        total+=pago[posicion]
+        return total
 

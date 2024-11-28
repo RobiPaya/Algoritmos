@@ -1,4 +1,4 @@
-from socios import *
+from socios import socios
 from tkinter import Menu
 import tkinter as tk
 from tkinter import PhotoImage
@@ -96,6 +96,8 @@ def socios_registar():
         fechadenacimiento_geteado=fechadenacimiento.get()
         if not nombre_geteado or not sexo_getado or not fechadenacimiento_geteado:
             messagebox.showerror("Error", "Faltan datos")
+        else:
+            socios.registrar(nombre,sexo,fechadenacimiento)
     frame_consultar.grid_forget()
     frame_socios.grid_forget()
     frame_registrar.grid(column=0, row=0)
