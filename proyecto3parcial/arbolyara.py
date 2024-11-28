@@ -8,6 +8,5 @@ def arbol_navidad():
     # Tronco del árbol
     tronco = ' ' * (altura - 1) + '|'
     print(tronco)
-
 # Llamar a la función para mostrar el árbol de Navidad
-arbol_navidad
+arbol_navidad()

@@ -3,6 +3,7 @@ from tkinter import Menu
 import tkinter as tk
 from tkinter import PhotoImage
 from tkinter import messagebox
+from tkcalendar import DateEntry
 import random
 
 #Contador secreto uwu
@@ -95,18 +96,6 @@ def socios_registar():
         fechadenacimiento_geteado=fechadenacimiento.get()
         if not nombre_geteado or not sexo_getado or not fechadenacimiento_geteado:
             messagebox.showerror("Error", "Faltan datos")
-    def meter_guion(*args):
-        verificar2=cambios_entrada.get()
-        if len(verificar2)==2:
-            nuevotexto=verificar2+"-"
-            fechadenacimiento.delete(0, tk.END)
-            fechadenacimiento.insert(0, nuevotexto)
-        elif len(verificar2)==5:
-            nuevotexto=verificar2+"-"
-            fechadenacimiento.delete(0, tk.END)
-            fechadenacimiento.insert(0, nuevotexto)
-        elif len(verificar2)>10:
-            fechadenacimiento.delete(10, tk.END)
     frame_consultar.grid_forget()
     frame_socios.grid_forget()
     frame_registrar.grid(column=0, row=0)
@@ -117,8 +106,7 @@ def socios_registar():
     sexo=tk.Entry(frame_registrar)
     sexo.grid(column=1, row=1)
     tk.Label(frame_registrar, text="Fecha de nacimiento : ").grid(column=0, row=2)
-    cambios_entrada.trace_add("write", meter_guion)
-    fechadenacimiento=tk.Entry(frame_registrar, textvariable=cambios_entrada)
+    fechadenacimiento=DateEntry(frame_registrar, width=17, background='darkblue', foreground='white', borderwidth=2, date_pattern='dd-mm-yyyy')
     fechadenacimiento.grid(column=1, row=2)
     tk.Button(frame_registrar, text="Registrar", command=registrar_socios).grid(column=1, row=4)
     tk.Button(frame_registrar, text="Volver", command=socios_boton).grid(column=0, row=4)
