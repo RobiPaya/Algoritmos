@@ -1,4 +1,4 @@
-nombre,sexo,edad,entrenador,estado
-fatima,m,10,Fatima,activo
-roberto,f,18,DIEGO,activo
-diego,m,70,Elvis,activo
+nombre,sexo,fecha_de_nacimiento,entrenador,estado
+fatima,m,10-12-2000,Fatima,activo
+negra,f,30-04-1950,DIEGO,activo
+diego,m,20-07-2008,Elvis,activo
