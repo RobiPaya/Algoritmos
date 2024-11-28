@@ -1,15 +1,15 @@
 import pandas as pd
 import datetime as dt
-class socios:
-    def registrar(nombre,sexo,fechadenacimiento):#coloca las cosas en forma de index 💋
+class sociose:
+    def registrar(nombre,sexo,fechadenacimiento,entrenador,estado):#coloca las cosas en forma de index 💋
         try:
             with open("socios.csv"):
                 pass
-            datos={"nombre":[nombre],"sexo":[sexo],"fecha_de_nacimiento":[fechadenacimiento]}
+            datos={"nombre":[nombre],"sexo":[sexo],"fecha_de_nacimiento":[fechadenacimiento],"entrenador":[entrenador],"estado":[estado]}
             dt=pd.DataFrame(datos)
             dt.to_csv("socios.csv", mode='a', index=False, header=False)
         except:
-            datos={"nombre":[nombre],"sexo":[sexo],"fecha_de_nacimiento":[fechadenacimiento]}
+            datos={"nombre":[nombre],"sexo":[sexo],"fecha_de_nacimiento":[fechadenacimiento],"entrenador":[entrenador],"estado":[estado]}
             dt=pd.DataFrame(datos)
             dt.to_csv("socios.csv", mode='a', index=False)
     def consultar(posicion):
