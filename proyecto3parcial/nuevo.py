@@ -6,6 +6,9 @@ from tkinter import messagebox
 from tkcalendar import DateEntry
 from fortnite import sociose
 from entrenadores import entrenadores
+from asistencias import asistencias
+from pagos import pagos
+from tkinter import ttk
 import pandas as pd
 import random
 
@@ -28,10 +31,12 @@ frame_registrar=tk.Frame()
 frame_entrenadores=tk.Frame()
 frame_asistencias=tk.Frame()
 frame_ganancias=tk.Frame()
+frame_reporteuwu=tk.Frame()
 
 #Cosa pa ver la ventana principal otra vez
 def verventanaprincipal():
     ventana.title("Inicio")
+    frame_reporteuwu.grid_forget()
     frame_entrenadores.grid_forget()
     frame_asistencias.grid_forget()
     frame_ganancias.grid_forget()
@@ -40,15 +45,45 @@ def verventanaprincipal():
     frame_registrar.grid_forget()
     frame_ventana_principal.grid(column=0, row=1)
 
-#Menú
-barra_menu = Menu(ventana) 
-menu_archivo = Menu(barra_menu, tearoff=1) 
-barra_menu.add_checkbutton(label="Inicio", command=verventanaprincipal)
-barra_menu.add_checkbutton(label="Socios")
-barra_menu.add_checkbutton(label="Asistencias")
-barra_menu.add_checkbutton(label="Reporte")
-barra_menu.add_checkbutton(label="Salir", command=quit)
-ventana.config(menu=barra_menu)
+def reporteuwu():
+    frame_registrar.grid_forget()
+    frame_ventana_principal.grid_forget()
+    frame_entrenadores.grid_forget()
+    frame_asistencias.grid_forget()
+    frame_ganancias.grid_forget()
+    frame_socios.grid_forget()
+    frame_consultar.grid_forget()
+    frame_reporteuwu.grid(column=0, row=0)
+    tk.Label(frame_reporteuwu, text="Corte diario").grid(column=0, row=0)
+    tk.Label(frame_reporteuwu, text=pagos.cortemensual()).grid(column=1, row=0)
+
+    tk.Label(frame_reporteuwu, text="Corte Mensual : ").grid(column=0, row=1)
+    tk.Label(frame_reporteuwu, text=pagos.cortemensual()).grid(column=1, row=1)
+
+    tk.Label(frame_reporteuwu, text="Porcentaje de asistencias diario").grid(column=0, row=2)
+    tk.Label(frame_reporteuwu, text=asistencias.reporte()).grid(column=1, row=2)
+
+    tk.Label(frame_reporteuwu, text="Edades").grid(column=0, row=3)
+    nosealgo=socios.edades()
+    tk.Label(frame_reporteuwu, text="Adultos mayores : ").grid(column=0, row=4)
+    tk.Label(frame_reporteuwu, text=(nosealgo["totales"]["adultos_mayores"])).grid(column=1, row=4)
+    tk.Label(frame_reporteuwu, text="Adultos : ").grid(column=0, row=5)
+    tk.Label(frame_reporteuwu, text=(nosealgo["totales"]["adultos"])).grid(column=1, row=5)
+    tk.Label(frame_reporteuwu, text="adolescentes : ").grid(column=0, row=6)
+    tk.Label(frame_reporteuwu, text=(nosealgo["totales"]["adolescentes"])).grid(column=1, row=6)
+    tk.Label(frame_reporteuwu, text="infante").grid(column=0, row=7)
+    tk.Label(frame_reporteuwu, text=(nosealgo["totales"]["infante"])).grid(column=1, row=7)
+    tk.Label(frame_reporteuwu, text="total de personas : ").grid(column=0, row=8)
+    tk.Label(frame_reporteuwu, text=(nosealgo["totales"]["total"])).grid(column=1, row=8)
+
+    machete2=""
+    for x in entrenadores.controldesocios():
+        machete=x
+        machete2+=f"{machete} : {entrenadores.controldesocios().get(x)}\n"
+    tk.Label(frame_reporteuwu, text="Entrenadores : ").grid(column=0, row=9)
+    tk.Label(frame_reporteuwu, text=machete2).grid(column=1, row=9)
+
+
 
 #Todo lo de socios
 def socios_boton():
@@ -72,10 +107,26 @@ def socios_consultar():
             global otrocontadornosecreto
             def editar_socios():
                     def editar2():
-                        socios.editar(int(idconsultada.get()),int(idconsultada.get()),nombre_editado.get())
+                        socios.editar(int(idconsultada.get()),"nombre",nombre_editado.get())
+                        socios.editar(int(idconsultada.get()),"sexo",sexo_editado.get())
+                        socios.editar(int(idconsultada.get()),"fecha_de_nacimiento",fechadenacimiento.get())
+                        socios.editar(int(idconsultada.get()),"entrenador",entrenador_editado.get())
+                        socios.editar(int(idconsultada.get()),"estado",estado_editado.get())
                     nombre_editado=tk.Entry(frame_datos_socios)
                     nombre_editado.grid(column=1, row=0)
                     nombre_editado.insert(0, datos["nombre"])
+                    sexo_editado=tk.Entry(frame_datos_socios)
+                    sexo_editado.grid(column=1, row=1)
+                    sexo_editado.insert(0, datos["sexo"])
+                    fechadenacimiento=DateEntry(frame_datos_socios, width=17, background='darkblue', foreground='white', borderwidth=2, date_pattern='dd-mm-yyyy')
+                    fechadenacimiento.grid(column=1, row=2)
+                    machete=list(entrenadores.controldesocios())
+                    machete.append("NaN")
+                    entrenador_editado=ttk.Combobox(frame_datos_socios, width=17, values=machete, state="readonly")
+                    entrenador_editado.grid(column=1, row=3)
+                    estado_editado=tk.Entry(frame_datos_socios)
+                    estado_editado.grid(column=1, row=4)
+                    estado_editado.insert(0, datos["estado"])
                     tk.Button(frame_datos_socios,text="Listo", command=editar2).grid(column=1, row=5)
             try:
                 frame_no_existe.grid_forget()
@@ -121,7 +172,8 @@ def socios_registar():
             messagebox.showerror("Error", "Faltan datos")
         else:
             sociose.registrar(nombre_geteado,sexo_getado,fechadenacimiento_geteado,entrenador,estado)
-
+            pagos.registro(int(len(pd.read_csv("socios.csv")))-1,300)
+            tk.Label(frame_registrar, text="Su transacción fue exitosa ♥").grid(column=1, row=4)
     frame_consultar.grid_forget()
     frame_socios.grid_forget()
     frame_registrar.grid(column=0, row=0)
@@ -135,7 +187,7 @@ def socios_registar():
     fechadenacimiento=DateEntry(frame_registrar, width=17, background='darkblue', foreground='white', borderwidth=2, date_pattern='dd-mm-yyyy')
     fechadenacimiento.grid(column=1, row=2)
     tk.Button(frame_registrar, text="Registrar", command=registrar_socios).grid(column=1, row=4)
-    tk.Button(frame_registrar, text="Volver", command=socios_boton).grid(column=0, row=4)
+    tk.Button(frame_registrar, text="Volver", command=socios_boton).grid(column=0, row=5)
 
 #Esto es secreto, no ver
 def secretouwu():
@@ -173,7 +225,7 @@ def entrenadores_registar():
         else:
             entrenadores.registrar(nombre_geteado,sexo_getado,fechadenacimiento_geteado,estado)
     frame_consultar.grid_forget()
-    frame_socios.grid_forget()
+    frame_entrenadores.grid_forget()
     frame_registrar.grid(column=0, row=0)
     tk.Label(frame_registrar, text="Nombre : ").grid(column=0, row=0)
     nombre=tk.Entry(frame_registrar)
@@ -198,7 +250,23 @@ def entrenadores_consultar():
                 return [entrenadores_consultar(), frame_datos_entrenadores.destroy()]
             global otrocontadornosecreto
             def editar_entrenadores():
-                a=tk.Entry(frame_datos_entrenadores).grid(column=1, row=0)
+                def editar2():
+                    entrenadores.editar(int(idconsultada.get()),"nombre",nombre_editado.get())
+                    entrenadores.editar(int(idconsultada.get()),"sexo",sexo_editado.get())
+                    entrenadores.editar(int(idconsultada.get()),"fecha_de_nacimiento",fechadenacimiento.get())
+                    entrenadores.editar(int(idconsultada.get()),"estado",estado_editado.get())
+                nombre_editado=tk.Entry(frame_datos_entrenadores)
+                nombre_editado.grid(column=1, row=0)
+                nombre_editado.insert(0, datos["nombre"])
+                sexo_editado=tk.Entry(frame_datos_entrenadores)
+                sexo_editado.grid(column=1, row=1)
+                sexo_editado.insert(0, datos["sexo"])
+                fechadenacimiento=DateEntry(frame_datos_entrenadores, width=17, background='darkblue', foreground='white', borderwidth=2, date_pattern='dd-mm-yyyy')
+                fechadenacimiento.grid(column=1, row=2)
+                estado_editado=tk.Entry(frame_datos_entrenadores)
+                estado_editado.grid(column=1, row=3)
+                estado_editado.insert(0, datos["estado"])
+                tk.Button(frame_datos_entrenadores,text="Listo", command=editar2).grid(column=1, row=4)
             try:
                 frame_no_existe.grid_forget()
                 frame_consultar.grid_forget()
@@ -221,8 +289,8 @@ def entrenadores_consultar():
                 tk.Label(frame_no_existe, text="No existe").grid(column=1, row=otrocontadornosecreto+1)
                 otrocontadornosecreto+=1
         probar_consulta() #Esto es solo pa que se corra
-    ventana.title("Socios consultar")
-    frame_socios.grid_forget()
+    ventana.title("entrenadores consultar")
+    frame_entrenadores.grid_forget()
     frame_consultar.grid(column=0, row=0)
     tk.Label(frame_consultar, text="ID : ").grid(column=0, row=0)
     idconsultada=tk.Entry(frame_consultar)
@@ -235,17 +303,28 @@ def asistencias_boton():
     frame_ventana_principal.grid_forget()
     ventana.title("Asistencias")
     frame_asistencias.grid(column=0, row=0)
+    def asistenciar():
+        asistencias.registro([int(idconsultada.get())])
+    idconsultada=tk.Entry(frame_asistencias)
+    idconsultada.grid(column=1, row=0)  
     tk.Label(frame_asistencias, text="ID : ").grid(column=0, row=0)
-    idconsultada=tk.Entry(frame_asistencias).grid(column=1, row=0)
-    tk.Button(frame_asistencias, text="Asistenciar").grid(column=1, row=1)
+    tk.Button(frame_asistencias, text="Asistenciar", command=asistenciar).grid(column=1, row=1)
     tk.Button(frame_asistencias, text="Volver", command=verventanaprincipal).grid(column=0, row=1)
 
 def ganancias_boton():
+    frame_asistencias.grid(column=0, row=0)
+    def justin_bieber(event):
+        ok=messagebox.askokcancel(title="Seguro?", message="Quieres pagar?")
+        if ok:
+            pagos.registro(int(pagosss.get()),300)
     ventana.title("Pagos")
     frame_ventana_principal.grid_forget()
     frame_ganancias.grid(column=0, row=0)
-    tk.Button(frame_ganancias, text="Reporte").grid(column=0,row=0)
-    tk.Button(frame_ganancias, text="Corte").grid(column=0, row=1)
+    pagosss=tk.Entry(frame_asistencias)
+    pagosss.grid(column=1, row=0)
+    tk.Label(frame_asistencias, text="ID : ").grid(column=0, row=0)
+    pagosss.bind("<Return>", justin_bieber)
+    tk.Button(frame_asistencias, command=verventanaprincipal, text="Volver").grid(column=0,row=1)
 
 #Pantalla principal
 #¯\_(ツ)_/¯
@@ -263,5 +342,12 @@ tk.Button(frame_ventana_principal, image=gananciasimagen, command=ganancias_boto
 #🤣
 entrenadoresimagen=PhotoImage(file="entrenador.png")
 tk.Button(frame_ventana_principal, image=entrenadoresimagen, command=entrenadores_boton).grid(column=0, row=2)
+#Menú
+barra_menu = Menu(ventana) 
+menu_archivo = Menu(barra_menu, tearoff=1) 
+barra_menu.add_checkbutton(label="Inicio", command=verventanaprincipal)
+barra_menu.add_checkbutton(label="Reporte", command=reporteuwu)
+barra_menu.add_checkbutton(label="Salir", command=quit)
+ventana.config(menu=barra_menu)
 
 ventana.mainloop()
