@@ -13,7 +13,9 @@ int main(){
         }
     }
     if(contador == 0){
-        cout << contador << endl;
-        cout << "Hola" << endl;
+        cout << numerito << " es número primo" << endl;
+    }
+    else{
+        cout<< numerito<<" es número no primo, tal vez hermano o no se"<<endl;
     }
 return 0;}
